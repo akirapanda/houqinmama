@@ -19,7 +19,6 @@ class Weixin::WeixinController < ApplicationController
 		  puts 'else'
 		end  
 		
-		end
 	end
 	
 	def check_weixin_legality
