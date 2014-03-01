@@ -10,7 +10,16 @@ class Weixin::WeixinController < ApplicationController
 	end
 	
 	def create
-	  
+    msg_type = params[:xml][:MsgType]
+		
+		case msg_type
+		when 'text'
+		  render "echo",:format=>:xml
+		else
+		  puts 'else'
+		end  
+		
+		end
 	end
 	
 	def check_weixin_legality
