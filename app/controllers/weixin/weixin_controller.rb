@@ -14,6 +14,9 @@ class Weixin::WeixinController < ApplicationController
 		
 		case msg_type
 		when 'text'
+		  wx_msg = WeixinTextMessage.new
+		  wx_msg.init_with_params(params)
+		  wx_msg.save
 		  @content = "Hello World"
 		  render "echo",:format=>:xml
 		else
