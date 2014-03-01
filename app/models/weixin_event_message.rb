@@ -1,0 +1,2 @@
+class WeixinEventMessage < WeixinMessage
+end
