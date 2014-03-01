@@ -14,6 +14,7 @@ class Weixin::WeixinController < ApplicationController
 		
 		case msg_type
 		when 'text'
+		  @content = "Hello World"
 		  render "echo",:format=>:xml
 		else
 		  puts 'else'
