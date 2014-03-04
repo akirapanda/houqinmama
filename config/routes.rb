@@ -9,6 +9,11 @@ Houqinmama::Application.routes.draw do
   
   resources :carts 
   
+  namespace :admin do
+    root :to => 'home#index'  
+  end
+  
+  
   namespace :weixin do
     resources :weixin
   end
