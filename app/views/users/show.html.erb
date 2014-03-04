@@ -1,39 +1,42 @@
-<h2>账户信息</h2>
+<%= content_for :title do %>
+	用户信息
+<% end %>
 
-<div id="goods_container" class="container shadow">
-<div class="goods_head">
-		<ul id="myTab" class="nav nav-pills">
-		  <li class="active"><%=link_to "个人信息",current_user%></li>
-		  <li ><%=link_to "订单信息",shopping_user_path(current_user)%></li>
-		
-		  <li><%=link_to "购物记录",history_buy_user_path(current_user)%></li>
-		
-		</ul>
-</div>
-<div class="goods_body">
-	<div class="row">
-		<div class="span12">
-			<div id="main">
-				<div id="user-info">
-				<div class="name-dashed">
-				<p>
-				<strong>登录邮箱:</strong>	
-					<%= current_user.email%>
-				</p>
-				</div>
-				<div class="name-dashed">
-					<p>
-					<strong>注册时间:</strong>	
-						<%=I18n.localize( current_user.created_at,:format=>:long)%>
-					</p>
-				</div>
-				</div>
-				</div>
-			</div>
 
-		</div>
-		<div id="sidebar" class="span3">
-		</div>
-</div>
+<div class='row-fluid'>
+    <div class='span3 box'>
+        <div class='box-content'>
+            <img alt="230x230&amp;text=photo" src="http://placehold.it/230x230&amp;text=Photo" />
+        </div>
+    </div>
 
+    <div class='span9 box'>
+        <div class='box-content box-double-padding'>
+            <form class='form' style='margin-bottom: 0;' />
+                <fieldset>
+                    <div class='span4'>
+                        <div class='lead'>
+                            <i class='icon-user text-contrast'></i>
+                            个人信息
+                        </div>
+                       
+                    </div>
+                    <div class='span7 offset1'>
+                        <div class='control-group'>
+                            <label class='control-label'>邮件地址</label>
+                            <div class='controls'>
+															<%=@user.email%>
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label'>注册时间</label>
+                            <div class='controls'>
+															<%=I18n.localize( @user.created_at,:format=>:long)%>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </div>
