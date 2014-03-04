@@ -1,0 +1,4 @@
+class WeixinUserMessage < WeixinMessage
+
+
+end

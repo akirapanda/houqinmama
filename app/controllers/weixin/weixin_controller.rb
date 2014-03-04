@@ -17,7 +17,17 @@ class Weixin::WeixinController < ApplicationController
 		  wx_msg = WeixinTextMessage.new
 		  wx_msg.init_with_params(params)
 		  wx_msg.save
-		  @content = "Hello World"
+		  
+		  user  =  WeixinUser.where(:open_id => params[:FromUserName])
+		  
+		  if user.empty?
+		    user = WeixinUser.new
+		    user.open_id =  params[:FromUserName]
+		    @content = "Hello New User"
+		  else
+		    @content = "Hello Old Customer"
+		  end
+		  
 		  render "echo",:format=>:xml
 		else
 		  puts 'else'

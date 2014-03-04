@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301144833) do
+ActiveRecord::Schema.define(version: 20140304041512) do
 
   create_table "weixin_messages", force: true do |t|
     t.string   "from_user"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20140301144833) do
     t.string   "event"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "weixin_users", force: true do |t|
+    t.string "open_id"
+    t.string "name"
+    t.string "group"
+    t.text   "note"
   end
 
 end
