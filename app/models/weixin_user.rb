@@ -1,4 +1,4 @@
-class WeixinUserMessage < WeixinMessage
+class WeixinUser < WeixinMessage
 
 
 end
