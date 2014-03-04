@@ -1,0 +1,20 @@
+<%= content_for :title do %>
+	关键字信息
+<% end %>
+<p>
+  <strong>Type:</strong>
+  <%= @keyword.cate %>
+</p>
+
+<p>
+  <strong>Keyword:</strong>
+  <%= @keyword.keywords %>
+</p>
+
+<p>
+  <strong>Reply content:</strong>
+  <%= @keyword.reply_content %>
+</p>
+
+<%= link_to '编辑', edit_admin_keyword_path(@keyword) %> |
+<%= link_to '返回', admin_keywords_path %>

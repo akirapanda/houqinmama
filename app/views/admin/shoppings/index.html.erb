@@ -1,0 +1,138 @@
+<%= content_for :title do %>
+	浏览所有订单信息
+<% end %>
+
+<div class='span11 box box-collapsed box-nomargin'>
+	<div class='box-header orange-background'>
+  	<div class='title'>条件查询</div>
+    	<div class='actions'>
+         <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+         </a>
+       </div>
+    </div>
+
+    <div class='box-content'>
+		<%= search_form_for [:admin,@q] ,:class=>"form-horizontal" do |f| %>
+
+			<div class="control-group">
+				<%=f.label :mobile_phone ,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :mobile_phone_cont,:class=>"search-query input-medium" ,:placeholder=>"手机号码"%>
+			    </div>
+			</div>
+			<div class="control-group">
+				<%=f.label :customer_name ,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :customer_name_cont,:class=>"search-query input-medium" ,:placeholder=>"收件人名称"%>
+			    </div>
+			</div>
+			<div class="control-group">
+				<%=f.label :customer_build,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :customer_build_cont,:class=>"search-query input-medium" ,:placeholder=>"寝室楼"%>
+			    </div>
+			</div>
+			
+			<div class="control-group">
+				<%=f.label :customer_build,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :customer_build_cont,:class=>"search-query input-medium" ,:placeholder=>"寝室楼"%>
+			    </div>
+			</div>
+			<div class="control-group">
+				<%=f.label :customer_build,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :customer_build_cont,:class=>"search-query input-medium" ,:placeholder=>"寝室楼"%>
+			    </div>
+			</div>
+			
+			
+			<div class="control-group">
+		    <label class="control-label">起始日期</label>
+		    <div class="controls">
+					<%= f.date_select :created_at_gteq, :include_blank => true %>
+		    </div>
+		  </div>
+		  
+			<div class="control-group">
+		    <label class="control-label">结束日期</label>
+		    <div class="controls">
+					<%= f.date_select :created_at_lteq, :include_blank => false %>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <div class="controls">
+				  <button type="submit" class="btn">查找</button>
+		    </div>
+		  </div>
+		</div>
+		<% end %>
+  </div>
+</div>
+<div class='span11 box bordered-box blue-border' style='margin-bottom:0;'>
+    <div class='box-header blue-background'>
+        <div class='title'>客户订单列表</div>
+        <div class='actions'>
+
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+							<table class="table">
+							  <thead>
+							    <tr>
+								  <th>订单编号</th>
+
+							      <th>客户名称</th>
+							      <th>地址</th>
+							      <th>手机号</th>
+							      <th>配送时间</th>
+							      <th>总金额</th>
+							      <th>订单状态</th>
+							
+							      <th>创建时间</th>
+							      <th>操作</th>
+							    </tr>
+							  </thead>
+
+							  <tbody>
+							    <% @shoppings.each do |shopping| %>
+							      <tr>
+											<td>
+											<%= link_to [:admin,shopping],:remote=>true do%>
+												<i class="icon-zoom-in"></i>
+											<%end%>
+											<%= link_to shopping.id, admin_shopping_path(shopping) %></td>
+							        <td><%= link_to shopping.customer_name, admin_shopping_path(shopping) %></td>
+							        <td><%= t truncate shopping.detail_address%></td>
+											<td><%= shopping.mobile_phone%>
+											<td><%= shopping.receive_time%>
+												<td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
+								        <td><%= shopping.status%>
+												
+											<td><%= I18n.localize(shopping.created_at,:format=>:long)%></td>
+									    <td>
+											<%= link_to admin_shopping_path(shopping), method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
+												<i class='icon-remove'></i>
+											<%end%>
+											
+											<%= link_to  edit_admin_shopping_path(shopping) ,:class=>"btn btn-info btn-mini" do%>
+												<i class='icon-edit'></i>
+											<%end%>
+
+											</td>
+							      </tr>
+							    <% end %>
+							  </tbody>
+							</table>
+						</div>
+					</div>					
+				</div>
+				<%=will_paginate @shoppings%>
+		</div>		
+</div>
+<div id="detail-modal">
+</div>

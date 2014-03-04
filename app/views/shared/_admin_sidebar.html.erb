@@ -1,0 +1,144 @@
+<nav class='' id='main-nav'>
+<div class='navigation'>
+<div class='search'>
+    <form accept-charset="UTF-8" action="search_results.html" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <div class='search-wrapper'>
+            <input autocomplete="off" class="search-query" id="q" name="q" placeholder="Search..." type="text" value="" />
+            <button class="btn btn-link icon-search" name="button" type="submit"></button>
+        </div>
+    </form>
+</div>
+<ul class='nav nav-stacked'>
+<li class='active'>
+    <a href='<%=admin_root_path%>'>
+        <i class='icon-dashboard'></i>
+        <span>控制仪表盘</span>
+    </a>
+</li>
+
+<li class=''>
+    <a class='dropdown-collapse' href='#'>
+        <i class='icon-edit'></i>
+        <span>客户订单管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+	    <li class=''>
+          <a href='<%=uncompleted_admin_shoppings_path%>'>
+              <i class='icon-caret-right'></i>
+              <span>进行中的订单</span>
+          </a>
+      </li>
+        <li class=''>
+            <a href='<%=admin_shoppings_path%>'>
+                <i class='icon-caret-right'></i>
+                <span>浏览全部订单</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='<%=new_admin_shopping_path%>'>
+                <i class='icon-caret-right'></i>
+                <span>手工添加订(测试功能)</span>
+            </a>
+        </li>
+
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-barcode'></i>
+        <span>商品管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+					<%= link_to admin_products_path do %>
+						<i class='icon-caret-right'></i>
+          	<span>浏览商品</span>
+					<%end%>
+
+        </li>
+        <li class=''>
+					<%= link_to new_admin_product_path do %>
+						<i class='icon-caret-right'></i>
+          	<span>新增商品</span>
+					<%end%>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-table'></i>
+        <span>订单表格管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+				<li>
+					<%= link_to admin_orders_path do %>
+			    	<i class='icon-caret-right'></i>
+			      <span>浏览订单表格</span>
+			   	<%end%>
+				</li>
+        <li class=''>
+					<%= link_to new_admin_order_path do %>
+						<i class='icon-caret-right'></i>
+          	<span>新增订单表格</span>
+					<%end%>
+        </li>
+    </ul>
+</li>
+
+
+
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-comments-alt'></i>
+        <span>微信管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li>
+					<%=link_to admin_keywords_path do%>
+						<i class='icon-caret-right'></i>
+          	<span>浏览自动回复设置</span>
+					<%end%>
+        </li>
+        <li>
+					<%=link_to new_admin_keyword_path do%>
+						<i class='icon-caret-right'></i>
+          	<span>新增关键字设置</span>
+					<%end%>
+        </li>
+    </ul>
+</li>
+
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-bar-chart'></i>
+        <span>报表</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='<%=products_admin_reports_path%>'>
+                <i class='icon-caret-right'></i>
+                <span>商品销售汇总</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='<%=customers_admin_reports_path%>'>
+                <i class='icon-caret-right'></i>
+                <span>客户消费额度报表</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='<%=sale_admin_reports_path%>'>
+                <i class='icon-caret-right'></i>
+                <span>日营业统计汇总</span>
+            </a>
+        </li>
+    </ul>
+</li>
+</ul>
+</div>
+</nav>

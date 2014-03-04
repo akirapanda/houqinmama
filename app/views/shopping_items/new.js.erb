@@ -1,0 +1,6 @@
+<% if @success %>
+	line = '<%= j(render("admin/shoppings/shopping_item",:shopping_item => @shopping_item)) %>';
+	$("table").append(line);
+<% else %>
+	alert ('添加商品失败')
+<% end %>

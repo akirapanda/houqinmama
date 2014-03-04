@@ -1,0 +1,63 @@
+<%= content_for :title do %>
+	浏览自动回复关键字信息
+<% end %>
+
+<div class='span11 box bordered-box blue-border' style='margin-bottom:0;'>
+    <div class='box-header blue-background'>
+        <div class='title'>所有关键字列表</div>
+        <div class='actions'>
+					<%= link_to  admin_keywords_path(:format => :csv) ,:class=>"btn btn-mini btn-link" do%>
+							<i class="icon-save">导出CSV</i>
+					<%end%>
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+							<table class="table table-hover">
+							  <thead>
+							    <tr>
+							      <th>接受信息种类</th>
+							      <th>关键值</th>
+								    <th>回复信息种类</th>
+							      <th>回复消息内容或订表格号码</th>
+							      <th>
+											操作
+							      </th>
+							    </tr>
+							  </thead>
+								<tbody>
+							    <% @keywords.each do |keyword| %>
+							      <tr>
+							        <td class="center"><%=  keyword.cate %></td>
+							        <td><%= link_to keyword.keywords,admin_keyword_path(keyword) %></td>
+							        <td><%= keyword.reply_type %></td>
+
+							        <td><%= keyword.reply_content.size<20? keyword.reply_content : "#{keyword.reply_content[0...20]}..." %></td>
+							        <td>
+													<%= link_to admin_keyword_path(keyword), method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
+														<i class='icon-remove'></i>
+													<%end%>
+
+													<%= link_to  edit_admin_keyword_path(keyword) ,:class=>"btn btn-info btn-mini" do%>
+														<i class='icon-edit'></i>
+													<%end%>
+											</td>
+							      </tr>
+							    <% end %>
+							  </tbody>
+							</table>
+					</div>
+				</div>					
+			</div>
+			<%= will_paginate @keywords %>
+			
+	</div>		
+</div>
+
+
+
+
+

@@ -1,0 +1,39 @@
+<h2>账户信息</h2>
+
+<div id="goods_container" class="container shadow">
+<div class="goods_head">
+		<ul id="myTab" class="nav nav-pills">
+		  <li class="active"><%=link_to "个人信息",current_user%></li>
+		  <li ><%=link_to "订单信息",shopping_user_path(current_user)%></li>
+		
+		  <li><%=link_to "购物记录",history_buy_user_path(current_user)%></li>
+		
+		</ul>
+</div>
+<div class="goods_body">
+	<div class="row">
+		<div class="span12">
+			<div id="main">
+				<div id="user-info">
+				<div class="name-dashed">
+				<p>
+				<strong>登录邮箱:</strong>	
+					<%= current_user.email%>
+				</p>
+				</div>
+				<div class="name-dashed">
+					<p>
+					<strong>注册时间:</strong>	
+						<%=I18n.localize( current_user.created_at,:format=>:long)%>
+					</p>
+				</div>
+				</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="sidebar" class="span3">
+		</div>
+</div>
+
+</div>

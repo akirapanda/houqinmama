@@ -1,0 +1,9 @@
+<%if mobile?%>
+
+	<%=render "mobile",:target=>@shopping%>
+
+
+<%else%>
+	<%=render 'pc',:target=>@shopping%>
+	
+<%end%>

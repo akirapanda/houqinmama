@@ -11,7 +11,83 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304043509) do
+ActiveRecord::Schema.define(version: 20140304045223) do
+
+  create_table "cart", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "weixin_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_cate", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "cover"
+    t.string   "name"
+    t.integer  "shoping_id"
+    t.integer  "product_cate_id"
+    t.decimal  "price",           precision: 13, scale: 2, default: 0.0
+    t.string   "unit"
+    t.text     "description"
+    t.integer  "buy_counter"
+    t.integer  "like_counter"
+    t.boolean  "is_visiable"
+    t.boolean  "is_recommend"
+    t.integer  "order_point"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shopping_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "shopping_id"
+    t.integer  "cart_id"
+    t.string   "product_name"
+    t.decimal  "product_price", precision: 13, scale: 2, default: 0.0
+    t.integer  "quantity"
+    t.string   "product_unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shoppings", force: true do |t|
+    t.integer  "shoping_id"
+    t.integer  "user_id"
+    t.integer  "weixin_user_id"
+    t.string   "customer_name"
+    t.string   "customer_address"
+    t.string   "school_area"
+    t.string   "customer_build"
+    t.string   "mobile_phone"
+    t.string   "status"
+    t.string   "receive_time"
+    t.string   "channel"
+    t.text     "remark"
+    t.decimal  "amount",           precision: 13, scale: 2, default: 0.0
+    t.decimal  "transfer_fee",     precision: 13, scale: 2, default: 0.0
+    t.decimal  "actual_amount",    precision: 13, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shops", force: true do |t|
+    t.string   "name"
+    t.string   "weixin_token"
+    t.string   "short_name"
+    t.string   "cate_type"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -58,6 +134,7 @@ ActiveRecord::Schema.define(version: 20140304043509) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mobile_phone", limit: 20
   end
 
   add_index "weixin_users", ["open_id"], name: "index_weixin_users_on_open_id", unique: true, using: :btree

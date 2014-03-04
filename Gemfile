@@ -11,6 +11,8 @@ gem 'simple_form'
 gem 'bootstrap_helper', github: 'akirapanda/bootstrap-helper'
 
 gem "wice_grid", '3.4.0'
+gem "ransack"
+
 #view compement
 gem "cells"
 

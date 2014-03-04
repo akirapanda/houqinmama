@@ -1,0 +1,40 @@
+
+	<div class="row-fluid">
+		<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全部水果
+		</h4>
+		<%@products.each_with_index do |product,index|%>
+		<%if index%4==0%>
+		<div class="span12">
+			<ul class="thumbnails product-list-inline-small">
+		<%end%>
+				
+				
+				<li class="span3">
+					<div class="thumbnail light">
+							<%=link_to product do%>
+
+							<img data-hover="<%=product.cover_url(:normal)%>" src="<%=product.cover_url(:normal)%>" alt="">
+							<%end%>
+						<div class="caption">
+							<%=link_to "#{product.name} (#{product.unit})" ,product%> 
+							<p><%=product.content%><%if product.is_recommend%>
+								<span class="label label-important price pull-right">&yen; <%=product.price.to_f%></span>
+							<%else%>
+								<span class="label label-success price pull-right">&yen;<%=product.price.to_f%>/<%=product.unit%></span></p>
+							<%end%>
+						</div>
+					</div>
+				</li>
+				
+		<%if index%4==3%>
+			</ul>
+		</div>
+		<%end%>
+		
+		<%end%>
+		
+		<%if @products.size%4!=0%>
+			</ul>
+		</div>
+		<%end%>
+	</div>

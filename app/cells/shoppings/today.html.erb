@@ -1,0 +1,29 @@
+<div class='box-header'>
+    <div class='title'>
+        <i class='icon-inbox'></i>
+        <%= link_to "今日订单",uncompleted_admin_shoppings_path%>
+    </div>
+    <div class='actions'>
+        <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
+        </a>
+        <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+        </a>
+    </div>
+</div>
+<div class='box-content'>
+	<table class="table">
+	<tr>
+		<th>订单号</th>
+		<th>金额</th>
+		<th>状态</th>
+	</tr>
+	<%@shoppings[0...5].each  do |shopping|%>
+	<tr>
+		<td><%= link_to shopping.id,[:admin,shopping]%></td>
+		<td><%= number_to_currency shopping.amount,:unit=>"&yen"%></td>
+		<td><%= shopping.status%></td>
+	</tr>
+	<%end%>
+	</table>
+
+</div>

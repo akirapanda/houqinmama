@@ -1,0 +1,50 @@
+<div class="row-fluid print-hide">
+	<div class="span12">
+		<div class="navbar main-nav">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="nav-navbar">
+						<ul class="nav">
+							<li>
+								<%=link_to  root_path do%>
+									<i class="icon-home"></i>
+								<%end%>
+							<li class="divider-vertical"></li>
+							<li><%=link_to "首页", root_path%></li>
+							<li><%=link_to "全部水果", products_path%></li>
+							<li><%=link_to "双\"蛋\"活动", "#"%></li>
+							<!--li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">other pages <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="column1.html">1 column page</a></li>
+									<li><a href="column2.html">2 column page</a></li>
+									<li><a href="column3.html">3 column page</a></li>
+								</ul>
+							</li-->
+						</ul>
+
+						<ul class="nav pull-right">
+							<li class="divider-vertical"></li>
+							<!--li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-question-sign"></i></a>
+								<ul class="dropdown-menu">
+									<li>
+										<div class="dropdown-content dropdown-content-wide">
+											<form class="form-search">
+												<div class="input-append">
+													<input type="text" class="search-query" placeholder="Type your question...">
+													<button class="btn">ok</button>
+												</div>
+											</form> 
+										</div>
+									</li>
+								</ul>
+							</li-->
+							<%= render 'carts/cart'%>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
