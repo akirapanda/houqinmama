@@ -23,6 +23,7 @@ class Weixin::WeixinController < ApplicationController
 		  if user.empty?
 		    user = WeixinUser.new
 		    user.open_id =  params[:FromUserName]
+		    user.save
 		    @content = "Hello New User"
 		  else
 		    @content = "Hello Old Customer"
