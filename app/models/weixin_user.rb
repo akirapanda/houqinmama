@@ -1,4 +1,4 @@
-class WeixinUser < WeixinMessage
+class WeixinUser < ActiveRecord::Base
 
 
 end
