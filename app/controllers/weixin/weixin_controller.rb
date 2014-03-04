@@ -18,11 +18,11 @@ class Weixin::WeixinController < ApplicationController
 		  wx_msg.init_with_params(params)
 		  wx_msg.save
 		  
-		  user  =  WeixinUser.where(:open_id => params[:FromUserName])
+		  user  =  WeixinUser.where(:open_id => params[:xml][:FromUserName])
 		  
 		  if user.empty?
 		    user = WeixinUser.new
-		    user.open_id =  params[:FromUserName]
+		    user.open_id =  params[:xml][:FromUserName]
 		    user.save
 		    @content = "Hello New User"
 		  else

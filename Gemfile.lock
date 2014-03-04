@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/akirapanda/bootstrap-helper.git
+  revision: d61f0f31f8e50527f8f3c6cf82cbebe397d3cf36
+  specs:
+    bootstrap_helper (4.2.2.3)
+      railties (= 4.0.0)
+      thor (~> 0.14)
+      will_paginate (>= 3.0.3)
+
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -29,7 +38,20 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.15)
+    bcrypt (3.1.7)
+    bcrypt-ruby (3.1.5)
+      bcrypt (>= 3.1.3)
     builder (3.1.4)
+    carrierwave (0.6.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+    carrierwave-upyun (0.1.5)
+      carrierwave (>= 0.5.7)
+      rest-client (>= 1.6.7)
+    cells (3.9.1)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
+    chronic (0.10.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -37,6 +59,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    devise (3.2.3)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+    devise-i18n-views (0.2.8)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -48,13 +77,19 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_magick (3.3)
+      subexec (~> 0.1.0)
     minitest (4.7.5)
     multi_json (1.8.4)
     mysql2 (0.3.15)
+    orm_adapter (0.5.0)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -75,6 +110,8 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -83,6 +120,9 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    simple_form (3.0.1)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -93,6 +133,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.9)
+    subexec (0.1.0)
     thor (0.18.1)
     thread_safe (0.2.0)
       atomic (>= 1.1.7, < 2)
@@ -106,19 +147,37 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
+    whenever (0.9.1)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
+    wice_grid (3.4.0)
+      kaminari (>= 0.13.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   actionpack-xml_parser
+  bootstrap_helper!
+  carrierwave (= 0.6.2)
+  carrierwave-upyun (= 0.1.5)
+  cells
   coffee-rails (~> 4.0.0)
+  devise
+  devise-i18n-views
   jbuilder (~> 1.2)
   jquery-rails
+  mini_magick (= 3.3)
   mysql2
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
+  simple_form
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)
+  whenever
+  wice_grid (= 3.4.0)

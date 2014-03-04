@@ -7,9 +7,28 @@ gem 'rails', '4.0.0'
 gem 'actionpack-xml_parser'
 gem 'mysql2'
 
+gem 'simple_form'
+gem 'bootstrap_helper', github: 'akirapanda/bootstrap-helper'
+
+gem "wice_grid", '3.4.0'
+#view compement
+gem "cells"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+# 上传组件
+gem 'carrierwave', '0.6.2'
+gem 'carrierwave-upyun', '0.1.5'
+gem 'mini_magick','3.3', require: false
+
+#whenever
+gem 'whenever'
+
+#devise
+gem 'devise'
+gem 'devise-i18n-views'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
