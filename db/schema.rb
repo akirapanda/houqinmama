@@ -11,80 +11,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304045223) do
+ActiveRecord::Schema.define(version: 20140521035533) do
 
-  create_table "cart", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "weixin_user_id"
+  create_table "brands", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.text     "desc"
+    t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "product_cate", force: true do |t|
+  create_table "goods", force: true do |t|
     t.string   "name"
-    t.text     "description"
+    t.string   "no"
+    t.string   "icon"
+    t.integer  "goods_cate_id"
+    t.integer  "goods_type_id"
+    t.integer  "brand_id"
+    t.integer  "vendor_id"
+    t.text     "brief"
+    t.text     "intro"
+    t.string   "unit"
+    t.string   "keywords"
+    t.boolean  "sellable",                               default: true
+    t.decimal  "mk_price",      precision: 20, scale: 2, default: 0.0
+    t.decimal  "price",         precision: 20, scale: 2, default: 0.0
+    t.decimal  "weight",        precision: 20, scale: 3, default: 0.0
+    t.integer  "point",                                  default: 0
+    t.integer  "store",                                  default: 0
+    t.text     "params_desc"
+    t.text     "pdt_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "goods_cates", force: true do |t|
+    t.string   "name"
+    t.string   "goods_cate_path"
+    t.string   "cate_type"
+    t.integer  "parent_goods_cate_id"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|
-    t.string   "cover"
     t.string   "name"
-    t.integer  "shoping_id"
-    t.integer  "product_cate_id"
-    t.decimal  "price",           precision: 13, scale: 2, default: 0.0
+    t.string   "no"
+    t.string   "icon"
+    t.integer  "goods_cate_id"
+    t.integer  "goods_type_id"
+    t.integer  "brand_id"
+    t.integer  "vendor_id"
+    t.text     "brief"
+    t.text     "intro"
     t.string   "unit"
-    t.text     "description"
-    t.integer  "buy_counter"
-    t.integer  "like_counter"
-    t.boolean  "is_visiable"
-    t.boolean  "is_recommend"
-    t.integer  "order_point"
-    t.text     "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shopping_items", force: true do |t|
-    t.integer  "product_id"
-    t.integer  "shopping_id"
-    t.integer  "cart_id"
-    t.string   "product_name"
-    t.decimal  "product_price", precision: 13, scale: 2, default: 0.0
-    t.integer  "quantity"
-    t.string   "product_unit"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shoppings", force: true do |t|
-    t.integer  "shoping_id"
-    t.integer  "user_id"
-    t.integer  "weixin_user_id"
-    t.string   "customer_name"
-    t.string   "customer_address"
-    t.string   "school_area"
-    t.string   "customer_build"
-    t.string   "mobile_phone"
-    t.string   "status"
-    t.string   "receive_time"
-    t.string   "channel"
-    t.text     "remark"
-    t.decimal  "amount",           precision: 13, scale: 2, default: 0.0
-    t.decimal  "transfer_fee",     precision: 13, scale: 2, default: 0.0
-    t.decimal  "actual_amount",    precision: 13, scale: 2, default: 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shops", force: true do |t|
-    t.string   "name"
-    t.string   "weixin_token"
-    t.string   "short_name"
-    t.string   "cate_type"
-    t.text     "description"
-    t.integer  "user_id"
-    t.integer  "level"
+    t.string   "keywords"
+    t.boolean  "sellable",                               default: true
+    t.decimal  "mk_price",      precision: 20, scale: 2, default: 0.0
+    t.decimal  "price",         precision: 20, scale: 2, default: 0.0
+    t.decimal  "weight",        precision: 20, scale: 3, default: 0.0
+    t.integer  "point",                                  default: 0
+    t.integer  "store",                                  default: 0
+    t.text     "params_desc"
+    t.text     "pdt_desc"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -100,43 +91,20 @@ ActiveRecord::Schema.define(version: 20140304045223) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
-    t.string   "unlock_token"
-    t.datetime "locked_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "weixin_messages", force: true do |t|
-    t.string   "from_user"
-    t.string   "to_user"
-    t.string   "type"
-    t.datetime "create_time"
-    t.string   "text_content"
-    t.string   "msg_id"
-    t.string   "event"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "weixin_users", force: true do |t|
-    t.string   "open_id"
-    t.integer  "user_id"
+  create_table "vendors", force: true do |t|
     t.string   "name"
-    t.string   "group"
-    t.text     "note"
+    t.string   "manager_name"
+    t.string   "address"
+    t.text     "desc"
+    t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mobile_phone", limit: 20
   end
-
-  add_index "weixin_users", ["open_id"], name: "index_weixin_users_on_open_id", unique: true, using: :btree
 
 end

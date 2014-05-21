@@ -1,19 +1,46 @@
 <nav class='' id='main-nav'>
 <div class='navigation'>
-<div class='search'>
-    <form accept-charset="UTF-8" action="search_results.html" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-        <div class='search-wrapper'>
-            <input autocomplete="off" class="search-query" id="q" name="q" placeholder="Search..." type="text" value="" />
-            <button class="btn btn-link icon-search" name="button" type="submit"></button>
-        </div>
-    </form>
-</div>
+
 <ul class='nav nav-stacked'>
 <li class='active'>
     <a href='<%=admin_root_path%>'>
         <i class='icon-dashboard'></i>
         <span>控制仪表盘</span>
     </a>
+</li>
+
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-barcode'></i>
+        <span>总库商品管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li>
+					<%= link_to admin_goods_path do %>
+						<i class='icon-caret-right'></i>
+          	<span>总库商品列表</span>
+					<%end%>
+        </li>
+        <li>
+					<%= link_to new_admin_good_path do %>
+						<i class='icon-caret-right'></i>
+          	<span>新增总库商品</span>
+					<%end%>
+        </li>
+        <li>
+					<%= link_to admin_goods_path do %>
+						<i class='icon-caret-right'></i>
+          	<span>商品分类列表</span>
+					<%end%>
+        </li>
+        <li>
+					<%= link_to new_admin_good_path do %>
+						<i class='icon-caret-right'></i>
+          	<span>新增商品分类</span>
+					<%end%>
+        </li>
+    </ul>
 </li>
 
 <li class=''>

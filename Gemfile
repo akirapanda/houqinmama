@@ -1,38 +1,16 @@
-source 'http://ruby.taobao.org'
+source 'https://ruby.taobao.org/'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
-#XML微信API
-gem 'actionpack-xml_parser'
-gem 'mysql2'
-
-gem 'simple_form'
-gem 'bootstrap_helper', github: 'akirapanda/bootstrap-helper'
-
-gem "wice_grid", '3.4.0'
-gem "ransack"
-
-#view compement
-gem "cells"
-gem 'lazy_high_charts'
-
+gem 'therubyracer'
+gem 'execjs'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
-# 上传组件
-gem 'carrierwave', '0.6.2'
-gem 'carrierwave-upyun', '0.1.5'
-gem 'mini_magick','3.3', require: false
-
-#whenever
-gem 'whenever'
-
-#devise
-gem 'devise'
-gem 'devise-i18n-views'
-
-
+#Weixin
+gem 'weixin_rails_middleware'
+gem 'weixin_authorize'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -47,9 +25,24 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'mysql2'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# 上传组件
+gem 'carrierwave', '~> 0.6.2'
+gem 'mini_magick','3.3', require: false
+
+#user
+gem 'devise'
+
+#city group
+gem 'simple_form'
+gem 'bootstrap_helper', github: 'akirapanda/bootstrap-helper'
+
+#pageinate
+gem 'wice_grid'
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 0.1.3'
+gem "ransack"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
