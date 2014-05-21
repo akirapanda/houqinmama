@@ -1,0 +1,60 @@
+<div class='accordion accordion-contrast' id='accordion'>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        筛选查询
+      </a>
+    </div>
+
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+				<div class="widget stacked ">
+					<div class="widget-content">
+						<%= search_form_for(@q,url: admin_goods_path,:html=>{:class=>"form-horizontal"} ) do |f| %>
+						  <div class="control-group">
+						    <label class="control-label" for="inputEmail">商品名称</label>
+						    <div class="controls">
+									<%=f.text_field :name_cont%>
+						    </div>
+						  </div>
+
+						  <div class="control-group">
+						    <label class="control-label" for="inputEmail">编号</label>
+						    <div class="controls">
+									<%=f.text_field :no_cont%>
+						    </div>
+						  </div>
+						
+							<div class="control-group">
+							    <label class="control-label" for="inputEmail">商品分类</label>
+							    <div class="controls">
+									<%= f.select :goods_cate_id_eq,options_from_collection_for_select(GoodsCate.sub_types,"id","name"),:include_blank=>true %>
+							  </div>
+							</div>
+							
+							
+							
+						  <div class="control-group">
+						    <label class="control-label" for="inputEmail">销售价</label>
+						    <div class="controls">
+									<%=f.text_field :price_gteq%>~<%=f.text_field :price_lteq%>
+						    </div>
+						  </div>
+						
+						  <div class="control-group">
+						    <label class="control-label" for="inputEmail">上架</label>
+						    <div class="controls">
+									<%=f.check_box :sellable_eq,:checked=>true%>
+						    </div>
+						  </div>
+						<hr/>
+						  <%= f.submit "查询",:class=>"btn btn-block btn-info" %>				  
+						<% end %>
+					</div>
+				</div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -16,7 +16,7 @@ class InitShop < ActiveRecord::Migration
       t.boolean :sellable,:default=>true
       t.decimal :mk_price,:default=>0, :precision => 20, :scale => 2
       t.decimal :price,:default=>0, :precision => 20, :scale => 2
-      t.decimal :weight,:default=>0, :precision => 20, :scale => 3
+      t.string :weight
       t.integer :point,:default=>0
       t.integer :store,:default=>0
       t.text :params_desc
@@ -58,6 +58,8 @@ class InitShop < ActiveRecord::Migration
       t.string :name
       t.string :no
       t.string :icon
+      t.integer :good_id
+      
       t.integer :goods_cate_id
       t.integer :goods_type_id
       t.integer :brand_id
@@ -69,7 +71,7 @@ class InitShop < ActiveRecord::Migration
       t.boolean :sellable,:default=>true
       t.decimal :mk_price,:default=>0, :precision => 20, :scale => 2
       t.decimal :price,:default=>0, :precision => 20, :scale => 2
-      t.decimal :weight,:default=>0, :precision => 20, :scale => 3
+      t.string :weight
       t.integer :point,:default=>0
       t.integer :store,:default=>0
       t.text :params_desc

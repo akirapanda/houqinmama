@@ -44,18 +44,8 @@
 							      </div -->
 							  </div> <!--endo of page-header -->
 							
-								<%if notice%>
-								<div class="alert alert-info fade in">
-									<a class="close" data-dismiss='alert' href="#">x</a>
-									<p id="notice"><%= notice %></p>
-								</div>
-								<%end%>
-								<%if alert%>
-								<div class="alert alert-block alert-error">
-									<a class="close" data-dismiss='alert' href="#">x</a>
-									<p id="notice"><%= alert %></p>
-								</div>
-								<%end%>
+								<%= notice_message %>
+
 							
 							
 								<%=yield%>

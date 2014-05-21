@@ -11,7 +11,7 @@
 	
 	g.column :name => "市场价",:attribute => "mk_price"
 	g.column :name => "重量",:attribute => "weight" do |goods|
-		"#{goods.weight} #{goods.unit}"
+		"#{goods.weight} / #{goods.unit}"
 	end
 	g.column :name => "关联商品" do |goods|
 		"#{goods.products.size}件"

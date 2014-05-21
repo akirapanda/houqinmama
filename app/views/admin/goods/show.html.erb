@@ -1,0 +1,36 @@
+<div class='box bordered-box blue-border'>
+<%= content_for :title do %>
+	总库商品详细信息
+<% end %>	
+  <div class='box-header blue-background'>
+	  <div class='title'>
+        <i class='icon-th-large'></i>
+        总库商品管理-<%=@goods.name%>
+    </div>
+	</div> <!-- /widget-header -->		
+  <div class='box-content box-double-padding'>
+			<div class="row-fluid">
+				<div class="span4">
+					<%=image_tag @goods.icon_url(:normal)%>
+				</div>
+				<div class="span8">
+					<b>商品名称:</b><%=@goods.name%><br/>
+					<b>编号:</b><%=@goods.no%><br/>
+					<b>市场价:</b><%=number_to_currency(@goods.mk_price,:unit=>"&yen")%><br/>
+					<b>出售价:</b><%=number_to_currency(@goods.price,:unit=>"&yen")%><br/>
+					<b>重量:</b><%=@goods.weight%><br/>
+					<b>计量单位:</b><%=@goods.unit%><br/>
+					
+					<b>商品简介:</b><%=@goods.brief%><br/>
+					<b>商品文字详细介绍:</b><br/>
+					<pre>	
+					<%=raw @goods.intro%>
+					</pre>
+					<div class="btn-group pull-right">
+						<%=link_to "编辑",edit_admin_good_path(@goods),:class=>"btn"%>
+						<%=link_to "删除",[:admin,@goods],:method=>:delete,:class=>"btn btn-danger"%>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
