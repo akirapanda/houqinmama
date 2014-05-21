@@ -1,3 +1,3 @@
-class Shop < ActiveRecord::Base
-  
+class Good < ActiveRecord::Base
+
 end

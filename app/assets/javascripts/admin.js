@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require highcharts/highcharts                                                           
-//= require highcharts/highcharts-more
+//= require wice_grid
 
 //= require admin/plugins/mobile_events/jquery.mobile-events.min
 //= require admin/jquery/jquery-migrate.min
