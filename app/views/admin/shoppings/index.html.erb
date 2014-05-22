@@ -41,13 +41,13 @@
 											<%end%>
 											<%= link_to shopping.id, admin_shopping_path(shopping) %></td>
 							        <td><%= link_to shopping.customer_name, admin_shopping_path(shopping) %></td>
-							        <td><%= t truncate shopping.detail_address%></td>
-											<td><%= shopping.mobile_phone%>
-											<td><%= shopping.receive_time%>
+							        <td><%= truncate shopping.customer_address%></td>
+											<td><%= shopping.mobile%>
+											<td><%=  shopping.ship_time%>
 												<td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
 								        <td><%= shopping.status%>
 												
-											<td><%= I18n.localize(shopping.created_at,:format=>:long)%></td>
+											<td><%= l(shopping.created_at,:format=>:long)%></td>
 									    <td>
 											<%= link_to admin_shopping_path(shopping), method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
 												<i class='icon-remove'></i>
