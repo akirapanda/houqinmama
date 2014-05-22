@@ -1,0 +1,35 @@
+<%=simple_form_for([:mobile,@shopping]) do |f| %>
+	<%=f.hidden_field :cart_id%>
+	<ul>
+		<li>
+			<label>收货人姓名<span style="color:#F00;">(必填)</span>:</label>
+			<br>
+			<%=f.text_field :customer_name,:class=>"common-input",:style=>"width:99%;height:auto;margin-top:10px;"%>
+    </li>
+
+		<li>
+			<label>地址<span style="color:#F00;">(必填)</span>:</label>
+			<br>
+			<%=f.text_field :customer_address,:class=>"common-input",:style=>"width:99%;height:auto;margin-top:10px;"%>
+    </li>
+
+		<li>
+			<label>联系电话<span style="color:#F00;">(必填)</span>:</label>
+			<br>
+			<%=f.text_field :mobile,:class=>"common-input",:style=>"width:99%;height:auto;margin-top:10px;"%>
+    </li>
+		<li>
+			<label>送货时间<span style="color:#F00;">(必填)</span>:</label>
+		<%= f.input :ship_time,:collection=>Shopping::SEND_TIMES,:selected=>Shopping::SEND_TIMES[0],:label=>false %>
+    </li>
+						
+		<li>
+			<label>备注:</label>
+			<br>
+			<%=f.text_area :remark,:class=>"common-input",:style=>"width:99%;height:auto;margin-top:10px;"%>
+    </li>
+		<li>
+			<input type="submit" name="Submit" id="address_submit" class="sub_btn" value="配送这个地址" autocomplete="off" style="width:100%; margin-left:0" />
+		</li>
+	</ul>
+<%end%>

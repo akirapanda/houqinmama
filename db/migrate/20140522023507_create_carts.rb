@@ -4,7 +4,7 @@ class CreateCarts < ActiveRecord::Migration
     
     create_table :shoppings do |t|
       t.integer :user_id
-      t.integer :city_id
+      t.integer :cart_id
       t.string :status
       t.string :pay_status
       t.string :ship_status

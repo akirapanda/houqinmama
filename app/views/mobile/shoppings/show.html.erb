@@ -1,0 +1,71 @@
+<h2>订单编号 # <%=@shopping.id%></h2>
+<h3>商品清单</h3>
+<div class="cart-list radius mc">
+	<ul>
+		<%@shopping.shopping_items.each do |item|%>
+				<li>
+					<div class="clear">
+						<div class="p-img p-img-v1 fl">
+							<%=link_to [:mobile,item.product] do%>
+								<%=image_tag item.product.good.icon_url(:mobile),:class=>"pay_img",:width=>"50"%>
+							<%end%>
+						</div>
+						<div class="fl fl-v1">
+							<p class="p-name">
+								<%=link_to [:mobile,item.product]  ,:class=>"f6" do%>
+									<%=item.name%>
+								<%end%>
+		
+							</p>
+							<p class="p-price" id="price">价格：<%=number_to_currency item.price,:unit=>"&yen"%></p>
+							<p class="p-price">数量：
+
+								<input type="text" id="quantity<%=item.id%>" value="<%=item.quantity%>" size="3" style="text-align:center;border: 1px solid #b3b3b3;" readonly/>
+
+							</p>
+							<p class="p-price2"></p>
+							<p class="p-price">小记：<span class="red" id="price<%=item.id%>"><%=number_to_currency item.amount,:unit=>"&yen"%></span></p>
+						</div>
+					</div>
+				</li>
+		<%end%>
+	</ul>
+</div>	
+
+<div class="pay-tip">
+	<p>购物金额：<span id="total_amount"><%=number_to_currency @shopping.amount,:unit=>"&yen"%></span>
+	</p>
+</div>		
+
+<hr/>
+
+<h3>联系方式</h3>		
+<div class="good-detail sift-mg">
+
+<ul class="mu_lw">
+	<li >
+		<span class="mu_lh">收件人姓名:</span>
+		<span class="mu_lc"><%=@shopping.customer_name%></span>
+	</li>
+	<li>
+		<span class="mu_lh">收件地址:</span>
+		<span class="mu_lc"><%=@shopping.customer_address%></span>
+	</li>
+	<li>
+		<span class="mu_lh">送货时间:</span>
+		<span class="mu_lc"><%=@shopping.ship_time%></span>
+	</li>
+	<li>
+		<span class="mu_lh">联系方式:</span>
+		<span class="mu_lc"><%=@shopping.mobile%></span>
+	</li>
+	<li>
+		<span class="mu_lh">备注:</span>
+		<span class="mu_lc"><%=@shopping.remark%></span>
+	</li>
+	<li>
+		<span class="mu_lh">下单时间:</span>
+		<span class="mu_lc"><%=l @shopping.created_at,:format=>:long%></span>
+	</li>
+</ul>
+</div>

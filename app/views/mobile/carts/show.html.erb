@@ -44,7 +44,7 @@
 <div class="pay-tip">
 	<p>购物金额：<span id="total_amount"><%=number_to_currency current_cart.total_amount,:unit=>"&yen"%></span>
 	</p>
-	</div>
+</div>
 	<%=link_to new_mobile_shopping_path(:cart_id=>current_cart.id), :class=>"btn-type btn-block" do%>
 		下订单
 	<%end%>

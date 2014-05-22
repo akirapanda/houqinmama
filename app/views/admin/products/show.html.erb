@@ -1,27 +1,32 @@
-<div class="widget stacked ">
-	<div class="widget-header">
- 		<i class="icon-user"></i>
- 		<h3><%=@product.name%></h3>
-	</div> <!-- /widget-header -->		
-		<div class="widget-content">
-			<div class="row-fluid">
-				<div class="span4">
-					<%=image_tag @product.good.icon_url(:normal)%>
-				</div>
-				<div class="span8">
-					<b>商品名称:</b><%=@product.name%><br/>
-					<b>编号:</b><%=@product.no%><br/>
-					<b>市场价:</b><%=number_to_currency(@product.mk_price,:unit=>"&yen")%><br/>
-					<b>出售价:</b><%=number_to_currency(@product.price,:unit=>"&yen")%><br/>
-					<b>重量:</b><%=@product.weight%><br/>
-					<b>计量单位:</b><%=@product.unit%><br/>
-					
-					<b>商品简介:</b><%=@product.brief%><br/>
-					
-					<b>商品文字详细介绍:</b><br/>
-					<pre>	
-					<%=raw @product.intro%>
-					</pre>
+<%= content_for :title do %>
+	在售商品详细信息
+<% end %>
+<div class='box bordered-box blue-border'>
+
+<div class='box-header blue-background'>
+  <div class='title'>
+      <i class='icon-th-large'></i>
+      总库商品管理-<%=@product.name%>
+  </div>
+</div> <!-- /widget-header -->		
+<div class='box-content box-double-padding'>
+		<div class="row-fluid">
+			<div class="span4">
+				<%=image_tag @product.good.icon_url(:normal)%>
+			</div>
+			<div class="span8">
+				<b>商品名称:</b><%=@product.name%><br/>
+				<b>编号:</b><%=@product.no%><br/>
+				<b>市场价:</b><%=number_to_currency(@product.mk_price,:unit=>"&yen")%><br/>
+				<b>出售价:</b><%=number_to_currency(@product.price,:unit=>"&yen")%><br/>
+				<b>重量:</b><%=@product.weight%><br/>
+				<b>计量单位:</b><%=@product.unit%><br/>
+				
+				<b>商品简介:</b><%=@product.brief%><br/>
+				<b>商品文字详细介绍:</b><br/>
+				<pre>	
+				<%=raw @product.intro%>
+				</pre>
 					<hr/>
 					<div class="btn-group pull-right">
 						<%=link_to "编辑",edit_admin_product_path(@product),:class=>"btn"%>
