@@ -1,0 +1,11 @@
+<%= grid(@goods_cates_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+	g.column :name => '名称', :attribute => 'name'
+	g.column :name => "分类类型",:attribute => 'cate_type'
+	g.column :name => "所属分类",:attribute => 'parent_goods_cate_id' do |goods_cate|
+		goods_cate.try(:parent_goods_cate).try(:name)
+	end
+	
+	g.column do |goods|
+		edit = link_to("编辑",edit_admin_goods_cate_path(goods))
+	end
+end -%>

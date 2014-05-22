@@ -1,5 +1,4 @@
 Houqinmama::Application.routes.draw do  
-  devise_for :admins
   devise_for :users
     
   root 'home#test'
@@ -31,7 +30,7 @@ Houqinmama::Application.routes.draw do
 
       resources :orders
       resources :goods
-      resources :good_cates
+      resources :goods_cates
       
       
       

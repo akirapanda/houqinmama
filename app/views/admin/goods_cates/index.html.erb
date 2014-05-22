@@ -1,0 +1,18 @@
+<%= content_for :title do %>
+	总库商品分类列表
+<% end %>
+
+<%=render 'search_form'%>
+<div class='box bordered-box blue-border'>
+	<div class='box-header blue-background'>
+	    <div class='title'>总库商品分类列表</div>
+	    <div class='actions'>
+				<%=link_to new_admin_goods_cate_path ,:class=>"btn  btn-mini btn-link" do%>
+					<i class='icon-plus'></i>
+				<%end%>
+	    </div>
+	</div>
+	<div class='box-content box-no-padding'>
+		<%=render 'grid'%>
+	</div>
+</div>

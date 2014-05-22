@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521035533) do
+ActiveRecord::Schema.define(version: 20140522023507) do
 
   create_table "brands", force: true do |t|
     t.string   "name"
@@ -20,6 +20,24 @@ ActiveRecord::Schema.define(version: 20140521035533) do
     t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "cart_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.string   "no"
+    t.string   "name"
+    t.integer  "quantity"
+    t.integer  "point"
+    t.decimal  "price",      precision: 20, scale: 2, default: 0.0
+    t.decimal  "amount",     precision: 20, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+    t.integer "user_id"
+    t.integer "city_id"
   end
 
   create_table "goods", force: true do |t|
@@ -37,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140521035533) do
     t.boolean  "sellable",                               default: true
     t.decimal  "mk_price",      precision: 20, scale: 2, default: 0.0
     t.decimal  "price",         precision: 20, scale: 2, default: 0.0
-    t.decimal  "weight",        precision: 20, scale: 3, default: 0.0
+    t.string   "weight"
     t.integer  "point",                                  default: 0
     t.integer  "store",                                  default: 0
     t.text     "params_desc"
@@ -71,11 +89,46 @@ ActiveRecord::Schema.define(version: 20140521035533) do
     t.boolean  "sellable",                               default: true
     t.decimal  "mk_price",      precision: 20, scale: 2, default: 0.0
     t.decimal  "price",         precision: 20, scale: 2, default: 0.0
-    t.decimal  "weight",        precision: 20, scale: 3, default: 0.0
+    t.string   "weight"
     t.integer  "point",                                  default: 0
     t.integer  "store",                                  default: 0
     t.text     "params_desc"
     t.text     "pdt_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "good_id"
+  end
+
+  create_table "shopping_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "shopping_id"
+    t.string   "no"
+    t.string   "name"
+    t.integer  "quantity"
+    t.integer  "point"
+    t.decimal  "price",       precision: 20, scale: 2, default: 0.0
+    t.decimal  "amount",      precision: 20, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shoppings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "city_id"
+    t.string   "status"
+    t.string   "pay_status"
+    t.string   "ship_status"
+    t.string   "ship"
+    t.string   "payment"
+    t.integer  "item_num"
+    t.string   "customer_name"
+    t.string   "customer_address"
+    t.string   "mobile"
+    t.string   "zipcode"
+    t.string   "ship_time"
+    t.decimal  "cost_item",        precision: 20, scale: 2, default: 0.0
+    t.decimal  "cost_ship",        precision: 20, scale: 2, default: 0.0
+    t.decimal  "amount",           precision: 20, scale: 2, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

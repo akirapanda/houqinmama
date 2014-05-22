@@ -3,7 +3,7 @@
     </a>
 		<ul class="dropdown-menu">
 			<%if @cart!=nil%>
-				<%@cart.shopping_items.each do |item|%>
+				<%@cart.cart_items.each do |item|%>
 							<li>
 								<%=link_to item.product do%>
 									<span class="pull-left"> <%=item.product_name%> x <%=item.count%></span> &nbsp; <span class="pull-right label label-info"><%=number_to_currency(item.amount,:unit=>"&yen")%></span>

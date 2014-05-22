@@ -78,5 +78,6 @@ class InitShop < ActiveRecord::Migration
       t.text :pdt_desc
       t.timestamps
     end
+    
   end
 end

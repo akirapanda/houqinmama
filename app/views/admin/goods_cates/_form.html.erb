@@ -1,0 +1,35 @@
+<%=simple_form_for([:admin,@goods_cates],:html=>{:class=>"form-horizontal"}) do |f|%>
+		<%=f.input :name,:input_html=>{:class=>"input-xlarge"}%>
+		<%=f.input :cate_type,:collection=>GoodsCate::CATE_TYPES,:input_html=>{:class=>"input-xlarge"}%>
+		<%=f.input :parent_goods_cate_id,:collection=>GoodsCate.main_types,:input_html=>{:class=>"input-xlarge"}%>
+		<%=f.input :content,:input_html=>{:class=>"input-xlarge"}%>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">保存</button> 
+			<button class="btn">取消</button>
+		</div> <!-- /form-actions -->
+<%end%>
+
+
+<script type="text/javascript">
+$(document).ready(function() {	
+	var selected = $('#goods_cate_cate_type').children('option:selected').val();
+	if (selected.indexOf("子分类") >= 0){
+		$('div .goods_cate_parent_goods_cate_id').show();
+	}else{
+		$('div .goods_cate_parent_goods_cate_id').hide();
+		$("#goods_cate_parent_goods_cate_id").val('');
+	}
+	
+	$('#goods_cate_cate_type').change(function(){ 
+		var selected = $(this).children('option:selected').val();
+		if (selected.indexOf("子分类") >= 0){
+			$('div .goods_cate_parent_goods_cate_id').show();
+		}else{
+			$('div .goods_cate_parent_goods_cate_id').hide();
+			$("#goods_cate_parent_goods_cate_id").val('');
+		}
+	});
+});
+
+
+</script>
