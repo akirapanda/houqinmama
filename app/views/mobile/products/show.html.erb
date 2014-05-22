@@ -155,7 +155,7 @@
 	form_authenticity_token) %>
 	<ul class="mu_lw">
 		<li class="mu_l"> <span class="mu_lh">编号：</span> <span class="mu_lc"><%=@product.no%></span></li>
-		<li class="mu_l"><span class="mu_lh">重量：</span> <span class="mu_lc price-txt"><%=@product.good.weight%><%=@product.good.unit%></span></li>
+		<li class="mu_l"><span class="mu_lh">重量：</span> <span class="mu_lc price-txt"><%=@product.good.weight%>/<%=@product.good.unit%></span></li>
 		<li class="mu_l"><span class="mu_lh">市场价：</span> <span class="mu_lc q-txt"><del><%=number_to_currency @product.mk_price,:unit=>"&yen"%></del></span></li>
 		<li class="mu_l"><span class="mu_lh">商品价格：</span> <span class="mu_lc red q-txt" id="ECS_SHOPPRICE"><%=number_to_currency @product.price,:unit=>"&yen"%></span></li>					
 		
@@ -166,7 +166,7 @@
 		<div class="btn-section"> 
 
 			<span class="btn-tbl-cell"> 
-				<%= f.submit "加入购物车",:class=>"btn-add-cart btn_font"%>
+				<%= f.submit "加入购物车",:class=>"btn-add-cart btn_font btn-block"%>
 </span> </div>
 		</li>
 	</ul>

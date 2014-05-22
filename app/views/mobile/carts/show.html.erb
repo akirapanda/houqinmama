@@ -1,7 +1,7 @@
 <div class="my-cart"> <span class="red">共<span id="total_count"><%=@cart.total_count%></span>件商品</span>
 	<div class="btn-area-rt">
 		<a href="/mobile/home/category.html" class="link ft15">继续购买 |</a>
-		<a href="buy.php?act=checkout" class="btn-type ft15">去结算</a>
+		<%=link_to "去结算",new_mobile_shopping_path(:cart_id=>current_cart.id), :class=>"btn-type ft15"%>
 	</div>
 </div>
 
@@ -45,8 +45,8 @@
 	<p>购物金额：<span id="total_amount"><%=number_to_currency current_cart.total_amount,:unit=>"&yen"%></span>
 	</p>
 </div>
-	<%=link_to new_mobile_shopping_path(:cart_id=>current_cart.id), :class=>"btn-type btn-block" do%>
-		下订单
+	<%=link_to new_mobile_shopping_path(:cart_id=>current_cart.id), :class=>" btn-block btn_font btn-add-cart" do%>
+		去结算
 	<%end%>
 
 <div class="to-top"><a href="javascript:scroll(0,0)" hidefocus="true"><span></span>回顶部</a></div>

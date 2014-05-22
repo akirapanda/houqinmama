@@ -8,7 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require admin/bootstrap/bootstrap.css
  *= require mobile/base.css
+
  */
 
 
@@ -24,6 +26,6 @@
 	background-color: rgb(249, 65, 58); background-position: initial initial; background-repeat: initial initial;
 }
 
-.btn-block{
+.btn-base-block{
 	display:block; margin:0 4px 10px; text-align:center;background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(237, 49, 49)), to(rgb(153, 10, 10))); background-position: initial initial; background-repeat: initial initial;	
 }

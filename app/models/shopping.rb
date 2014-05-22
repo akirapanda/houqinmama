@@ -6,6 +6,7 @@ class Shopping < ActiveRecord::Base
   SEND_TIMES= ["12:00","18:00","20:30","次日12:15 - 19:50"]
   after_save :save_shopping_items
   
+  validates :ship_time,:customer_address,:customer_name,:mobile,:presence => true
   
   def build_with_cart(cart)
     cart.cart_items.each do |item|
