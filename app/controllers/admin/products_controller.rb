@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController <  Admin::BaseController
   
   def new
     if params[:goods_id].present?
