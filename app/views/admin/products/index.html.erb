@@ -1,23 +1,18 @@
-<div class="row">
-	<div class="btn-group  pull-right">
-	  <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-	    操作
-	    <span class="caret"></span>
-	  </a>
-	  <ul class="dropdown-menu">
-			<li><%=link_to "新建",new_list_admin_products_path%>
-			</li>
-
-	  </ul>
+<%= content_for :title do %>
+	在售商品列表
+<% end %>
+<%=render 'search_form'%>
+<div class='box bordered-box blue-border'>
+	<div class='box-header fb-background'>
+	    <div class='title'>总库商品列表</div>
+	    <div class='actions'>
+				<%=link_to new_list_admin_products_path ,:class=>"btn  btn-mini btn-link" do%>
+					<i class='icon-plus'></i>
+				<%end%>
+	    </div>
+	</div>
+	<div class='box-content box-no-padding'>
+		<%=render 'grid'%>
 	</div>
 </div>
 
-<div class="widget stacked ">
-	<div class="widget-header">
- 		<i class="icon-user"></i>
- 		<h3>商品分类列表-<%= current_city.name if current_city%></h3>
-	</div> <!-- /widget-header -->		
-		<div class="widget-content">
-		<%=render 'grid'%>
-		</div>
-</div>

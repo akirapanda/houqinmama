@@ -10,8 +10,8 @@
 	g.column :name => '市场价', :attribute => 'mk_price'
 	g.column :name => '出售价', :attribute => 'price'
 	g.column :name => '库存', :attribute => 'store'
-	g.column :name => "上架" ,:attribute => "sellable" do |product|
-		 t product.sellable.to_s
+	g.column :name => "上架" ,:attribute => "on_sale" do |product|
+		 t product.on_sale.to_s
 	end
 	g.column do |product|
 		edit = link_to("编辑",edit_admin_product_path(product))

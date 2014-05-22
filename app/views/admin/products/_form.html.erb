@@ -1,12 +1,12 @@
 <%=simple_form_for([:admin,@product],:html=>{:class=>"form-horizontal"}) do |f|%>
 		<%=f.input :name,:input_html=>{:class=>"input-xxlarge"}%>
 		<%=f.input :no,:input_html=>{:class=>"input-xxlarge"}%>
-		
+		<%=f.input :good_id,:as=>:hidden%>
 		<%=f.input :mk_price%>
 		<%=f.input :price%>	
 		<%=f.input :weight%>
 		<%=f.input :unit%>
-		<%=f.input :sellable%>
+		<%=f.input :on_sale%>
 		<%=f.input :keywords,:placeholder=>"多个关键字用空分开"%>
 		<%=f.input :brief,:input_html=>{:class=>"input-xxlarge"}%>
 		

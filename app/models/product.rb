@@ -1,7 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :good
-  belongs_to :city
-  validates :name, :no,:city_id,:presence => true
+  validates :name, :no,:presence => true
   
   scope :on_sale, -> { where(on_sale: true) }
   paginates_per 10
@@ -13,10 +12,10 @@ class Product < ActiveRecord::Base
     self.mk_price = goods.mk_price
     self.price = goods.price
     self.pdt_desc = goods.pdt_desc
-    self.intor = goods.intro
+    self.intro = goods.intro
     self.keywords = goods.keywords
     self.unit = goods.unit
-    self.breif = goods.breif
+    self.brief = goods.brief
     self.weight = goods.weight
   end
 end

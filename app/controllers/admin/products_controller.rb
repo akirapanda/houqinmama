@@ -35,7 +35,8 @@ class Admin::ProductsController <  Admin::BaseController
   end
   
   def index
-    @products = Product.all
+    @q = Product.search(params[:q])
+    @products = @q.result(distinct: true)
     @products_grid = initialize_grid(@products,:per_page => 20)
   end
   
