@@ -1,3 +1,4 @@
 class ShoppingItem < ActiveRecord::Base
-  belongs_to :cart
+  has_many :shopping
+  belongs_to :product
 end

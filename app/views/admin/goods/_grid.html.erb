@@ -17,8 +17,8 @@
 		"#{goods.products.size}件"
 	end
 	
-	g.column :name => "上架" ,:attribute => "sellable" do |goods|
-		 t goods.sellable.to_s
+	g.column :name => "上架" ,:attribute => "on_sale" do |goods|
+		 t goods.on_sale.to_s
 	end 
 	g.column do |goods|
 		edit = link_to("编辑",edit_admin_good_path(goods))

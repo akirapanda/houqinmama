@@ -72,6 +72,6 @@ Houqinmama::Application.routes.draw do
         get 'product_cate'
       end
     end  
-    
+    resources :shoppings
   end
 end

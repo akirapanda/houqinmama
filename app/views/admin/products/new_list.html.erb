@@ -1,0 +1,26 @@
+<%=render 'new_list_search_form'%>
+
+
+<%= grid(@goods_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+	g.column :name => '名称', :attribute => 'name' do |goods|
+		link_to goods.name,[:admin,goods]
+	end
+	g.column :name => '编号', :attribute => 'no'
+	
+	g.column :name => "分类", :attribute => "name",:model=>"GoodsCate"
+	
+	g.column :name => "销售价",:attribute => "price"
+	
+	g.column :name => "市场价",:attribute => "mk_price"
+	g.column :name => "重量",:attribute => "weight" do |goods|
+		"#{goods.weight} #{goods.unit}"
+	end
+
+	
+	g.column :name => "上架" ,:attribute => "sellable" do |goods|
+		 t goods.sellable.to_s
+	end 
+	g.column do |goods|
+		edit = link_to("新建",new_admin_product_path(:goods_id=>goods))
+	end
+end -%>
