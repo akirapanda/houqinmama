@@ -14,6 +14,10 @@ class Mobile::ShoppingsController < Mobile::BaseController
     cart = Cart.find(@shopping.cart_id)
     
     @shopping.build_with_cart(cart)
+    if sesssion[:open_id]
+      @shopping.open_id = sesssion[:open_id]
+    end
+    
     if @shopping.save
       session[:cart_id]=nil
       redirect_to [:mobile,@shopping],:notice=>"下单成功"
