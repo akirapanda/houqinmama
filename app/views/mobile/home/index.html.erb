@@ -1,0 +1,29 @@
+<form name="searchForm" method="get" action="search.php" class="search">
+	<input name="keywords" id="keyword" type="text" class="keyword" value="" placeholder="请输入关键词">
+	<input type="submit" value="搜索" class="search-button">
+</form>
+
+
+
+
+<%render 'activity'%>
+<div id="hot">
+	<div class="mt">
+		<ul class="menu0" id="menu0">
+			<li onClick="setTab(0,0)" class="hover"><span>热销推荐</span></li>
+			<li onClick="setTab(0,1)"><span>当地特产</span></li>
+			<li onClick="setTab(0,2)"><span>导游推荐</span></li>
+		</ul>
+	</div>
+	<div class="main" id="main0">
+		<ul class="block">
+			<%=render 'promote_products'%>
+		</ul>
+		<ul>
+		
+		</ul>
+	</div>
+</div>
+
+<div class="to-top"><a href="javascript:scroll(0,0)" hidefocus="true"><span></span>回顶部</a></div>
+

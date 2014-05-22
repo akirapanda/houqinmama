@@ -13,7 +13,7 @@ class InitShop < ActiveRecord::Migration
       t.text :intro
       t.string :unit
       t.string :keywords
-      t.boolean :sellable,:default=>true
+      t.boolean :on_sale,:default=>true
       t.decimal :mk_price,:default=>0, :precision => 20, :scale => 2
       t.decimal :price,:default=>0, :precision => 20, :scale => 2
       t.string :weight
@@ -68,7 +68,7 @@ class InitShop < ActiveRecord::Migration
       t.text :intro
       t.string :unit
       t.string :keywords
-      t.boolean :sellable,:default=>true
+      t.boolean :on_sale,:default=>true
       t.decimal :mk_price,:default=>0, :precision => 20, :scale => 2
       t.decimal :price,:default=>0, :precision => 20, :scale => 2
       t.string :weight

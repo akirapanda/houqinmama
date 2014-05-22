@@ -1,0 +1,21 @@
+<div class="mc radius">
+	<ul class="mu-l2w">
+		<%@products.each do |product|%>
+			<li style="padding: 10px;border-top: none;overflow: hidden;line-height: 1.6em;">
+				<%=link_to [:mobile,product],:class=>"product_cate_item_link" do%>
+					<span class="mu-tmb" style="float:left;margin-right:8px;">
+						<img src="<%=product.good.icon_url(:normal)%>" alt="<%=product.name%>" width="100" height="100"> </span> <span><%=product.name%></span><span class="red" style="display: block;"><%=number_to_currency(product.price,:unit=>"&yen")%></span>
+				<%end%>
+			</li>
+		<%end%>
+
+			</ul>
+</div>
+<div class="pages">
+	第<%= params[:page]%>页<br/>
+	<%= link_to_previous_page @products, '上一页',:class=>"pre" %>
+	<%= link_to_next_page @products, '下一页',:class=>"next" %>
+	<br/>
+</div>
+<div class="to-top"><a href="javascript:scroll(0,0)" hidefocus="true"><span></span>回顶部</a></div>
+

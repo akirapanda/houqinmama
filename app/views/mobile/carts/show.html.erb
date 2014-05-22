@@ -1,0 +1,49 @@
+<div class="my-cart"> <span class="red">共<span id="total_count"><%=@cart.total_count%></span>件商品</span>
+	<div class="btn-area-rt">
+		<a href="/mobile/home/category.html" class="link ft15">继续购买 |</a>
+		<a href="buy.php?act=checkout" class="btn-type ft15">去结算</a>
+	</div>
+</div>
+
+<div class="cart-list radius mc">
+	<ul>
+		<%current_cart.cart_items.each do |item|%>
+				<li>
+					<div class="clear">
+						<div class="p-img p-img-v1 fl">
+							<%=link_to [:mobile,item.product] do%>
+								<%=image_tag item.product.good.icon_url(:mobile),:class=>"pay_img",:width=>"50"%>
+							<%end%>
+						</div>
+						<div class="fl fl-v1">
+							<p class="p-name">
+								<%=link_to [:mobile,item.product]  ,:class=>"f6" do%>
+									<%=item.name%>
+								<%end%>
+		[<a href="javascript:if (confirm('您确实要把该商品移出购物车吗？')) location.href='cart.php?act=drop_goods&id=4226'; ">删除</a>]
+							</p>
+							<p class="p-price" id="price">价格：<%=number_to_currency item.price,:unit=>"&yen"%></p>
+							<p class="p-price">数量：
+								<%=link_to minus_mobile_cart_item_path(item,:quantity=>"1"),:style=>"font-size:16px",:remote=>true do%>
+									-
+								<%end%>
+								<input type="text" id="quantity<%=item.id%>" value="<%=item.quantity%>" size="3" style="text-align:center;border: 1px solid #b3b3b3;"/>
+								<%=link_to plus_mobile_cart_item_path(item,:quantity=>"1"),:style=>"font-size:16px",:remote=>true do%>
+									+
+								<%end%>
+							</p>
+							<p class="p-price2"></p>
+							<p class="p-price">小记：<span class="red" id="price<%=item.id%>"><%=number_to_currency item.amount,:unit=>"&yen"%></span></p>
+						</div>
+					</div>
+				</li>
+		<%end%>
+
+	</ul>
+</div>
+<div class="pay-tip">
+	<p>购物金额：<span id="total_amount"><%=number_to_currency current_cart.total_amount,:unit=>"&yen"%></span>
+	</p>
+	</div>
+<a href="buy.php?act=checkout" class="btn-type" style="display:block; margin:0 4px 10px; text-align:center;background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(237, 49, 49)), to(rgb(153, 10, 10))); background-position: initial initial; background-repeat: initial initial;">去结算</a>
+<div class="to-top"><a href="javascript:scroll(0,0)" hidefocus="true"><span></span>回顶部</a></div>

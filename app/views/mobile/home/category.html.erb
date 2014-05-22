@@ -1,0 +1,15 @@
+<div class="mc radius">
+	<%@cates=GoodsCate.main_types%>
+	<%@cates.each do |main|%>
+	<div class="mc radius">
+		<h3><%=link_to main.name,"#"%></h3>
+		<%main.children_goods_cates.each do |child|%>
+			<%if child.cate_type != "主分类"%>
+				<%=link_to child.name,product_cate_mobile_products_path(:cate_id=>child.id),:class=>"cate_link"%>
+			<%end%>
+		<%end%>
+		</div>
+	<%end%>
+
+
+<div class="to-top"><a href="javascript:scroll(0,0)" hidefocus="true"><span></span>回顶部</a></div>

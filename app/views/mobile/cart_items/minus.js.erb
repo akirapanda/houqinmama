@@ -1,0 +1,10 @@
+<%if @success%>
+	$("#quantity<%=@cart_item.id%>").val("<%=@cart_item.quantity%>");
+	$("#price<%=@cart_item.id%>").html("<%=number_to_currency(@cart_item.amount,:unit=>'&yen')%>");
+	$("#total_amount").html("<%=number_to_currency(@cart_item.cart.total_amount,:unit=>'&yen')%>");	
+	$("#total_count").html("<%=@cart_item.cart.total_count%>");	
+	
+	
+<%else%>
+	alert('更新失败!');
+<%end%>

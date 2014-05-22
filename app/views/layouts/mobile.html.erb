@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>土猴商城</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="ecdaddy.com">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<%= stylesheet_link_tag    "mobile", media: "all", "data-turbolinks-track" => false %>
+	<%= javascript_include_tag "mobile", "data-turbolinks-track" => false %>
+	<%= csrf_meta_tags %><script type="text/javascript">
+	function setTab(m,n){
+		var tli=document.getElementById("menu"+m).getElementsByTagName("li");
+		var mli=document.getElementById("main"+m).getElementsByTagName("ul");
+		for(i=0;i<tli.length;i++){
+			tli[i].className=i==n?"hover":"";
+			mli[i].style.display=i==n?"block":"none";
+		}
+	}
+	</script>
+	</head>
+	<body>
+	  <%=render 'shared/mobile/header'%>
+		<%=yield%>
+		<%=render 'shared/mobile/footer'%>
+		
+	</body>
+  
+</html>

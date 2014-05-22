@@ -51,8 +51,27 @@ Houqinmama::Application.routes.draw do
       end
   end
   
-  
-  namespace :weixin do
-    resources :weixin
+  namespace :mobile do
+    root :to => 'home#index'
+    resources :carts
+    
+    resources :cart_items do
+      member do
+        get 'plus'
+        get 'minus'
+      end
+    end
+    
+    resources :home do 
+      collection do
+        get 'category'
+      end
+    end
+    resources :products do
+      collection do
+        get 'product_cate'
+      end
+    end  
+    
   end
 end
