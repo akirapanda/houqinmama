@@ -15,6 +15,6 @@ module Houqinmama
     config.i18n.default_locale = :"zh-CN"
     config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
-    config.assets.precompile += %w(mobile.css mobile.js admin.css admin.js)    
+    config.assets.precompile += %w(mobile.css mobile.js admin.css admin.js shop.js shop.css)    
   end
 end

@@ -6,7 +6,7 @@
 				<%@cart.cart_items.each do |item|%>
 							<li>
 								<%=link_to item.product do%>
-									<span class="pull-left"> <%=item.product_name%> x <%=item.count%></span> &nbsp; <span class="pull-right label label-info"><%=number_to_currency(item.amount,:unit=>"&yen")%></span>
+									<span class="pull-left"> <%=item.name%> x <%=item.quantity%></span> &nbsp; <span class="pull-right label label-info"><%=number_to_currency(item.amount,:unit=>"&yen")%></span>
 								<%end%>
 							</li>
 				<%end%>
