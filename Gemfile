@@ -33,7 +33,7 @@ gem 'mini_magick','3.3', require: false
 
 #user
 gem 'devise'
-
+gem 'cells'
 #city group
 gem 'simple_form'
 gem 'bootstrap_helper', github: 'akirapanda/bootstrap-helper'
