@@ -1,0 +1,54 @@
+"zh-CN":
+    "false": "否"
+    "true": "是"
+    date:
+        formats:
+          # Use the strftime parameters for formats.
+          # When no format has been given, it uses default.
+          # You can provide other formats here if you like!
+            default: "%Y-%m-%d"
+            short: "%b%d日"
+            long: "%Y年%b%d日"
+    time:
+        formats:
+            default: "%Y年%b%d日 %A %H:%M:%S"
+            time: "%H:%M"
+            short: "%b%d日 %H:%M"
+            long: "%Y年%b%d日 %H:%M"
+    activerecord:
+        models:
+            good: "商品"
+            order: "订单表格"
+            shopping: "客户订单"
+        attributes:
+            product:
+                name: "商品名称"
+                content: "描述"
+                cover: "商品照片"
+                price: "单价"
+                unit: "单位"
+                body_html: "详细描述"
+                weixin_url: "微信商品点击链接"
+                public: "是否公开商品信息"
+                is_onsale: "是否为上架货物"
+                is_recommend: "是否为推荐商品"
+                product_cate_id: "商品分类"
+            order:
+                name: "订单表格名称"
+                publish: "是否公开"
+                content: "简介"
+            shopping:
+                customer_name: "收货人姓名"
+                customer_build: "收货地址"
+                receive_time: "送货时间"
+                customer_address: "详细地址"
+                mobile_phone: "联系电话"
+                school_area: "校区"
+                remark: "备注信息"
+            keyword:
+                cate: "关键字类型"
+                keywords: "关键字内容"
+                reply_type: "回复类型"
+                reply_content: "回复内容"
+                
+              

@@ -12,10 +12,10 @@
     </div>
     <div class='box-content'>
 	
-			<%= simple_form_for(ShoppingItem.new,url:new_shopping_item_path,:method=>:get,:remote=>true,:html=>{:class=>"default_class validate-form"}) do |f|%>
+			<%= simple_form_for([:admin,ShoppingItem.new],:url=>new_admin_shopping_item_path,:method=>:get,:remote=>true,:html=>{:class=>"default_class validate-form"}) do |f|%>
 				<label for="products-select">添加商品记录</label>
 			
-				<%=f.input :product_id,collection: @products,:input_html=>{:class=>"chosen-select","data-rule-required"=>true},label_method: :name, value_method: :id,:label=>false%>
+				<%=f.input :product_id,collection: Product.on_sale,:input_html=>{:class=>"chosen-select"},label_method: :name, value_method: :id,:label=>false%>
 				<%=f.submit '添加商品',:class=>"btn btn-primary"%>
 			<%end%>
     </div>

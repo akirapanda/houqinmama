@@ -29,6 +29,8 @@ class CreateCarts < ActiveRecord::Migration
       t.string :name
       t.integer :quantity
       t.integer :point
+      t.integer :unit
+      
       t.decimal :price,:default=>0, :precision => 20, :scale => 2
       t.decimal :amount,:default=>0, :precision => 20, :scale => 2
       t.timestamps

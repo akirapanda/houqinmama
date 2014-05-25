@@ -16,13 +16,44 @@ class Shopping < ActiveRecord::Base
     end
   end
   
+  def calAmount(shopping)
+    amount=0
+    shopping.shopping_items.each do |item|
+      amount = amount+item.amount
+    end
+    amount
+  end
+  
+  
+  
+  def new_shopping_item_attributes=(item_attributes)
+    item_attributes.each do |attributes|
+        shopping_items.build(attributes)
+    end
+  end
+  
+  def exist_shopping_item_attributes=(item_attributes)
+    
+    shopping_items.reject(&:new_record?).each do |item|
+      attributes = item_attributes[item.id.to_s]      
+      if attributes        
+        item.attributes = attributes
+      else
+        shopping_items.delete(item)
+      end
+    end
+  end
+  
   private 
   
   def save_shopping_items
+    total_amount = 0
     shopping_items.each do |item|
         item.amount=item.cal_amount
+        total_amount+= item.amount
         item.save
     end
+    
   end
   
 end

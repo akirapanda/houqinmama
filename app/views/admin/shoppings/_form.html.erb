@@ -30,10 +30,6 @@
 			         	手工为客人添加订单信息
 			         </small>
 			     </div>
-			
-
-				
-
 				
 			
 			     <div class='span7 offset1'>
@@ -46,31 +42,24 @@
 			       </div>
 			
 				  	<div class='control-group'>
-							<%= f.label :mobile_phone ,:class=>"control-label"%>
+							<%= f.label :mobile ,:class=>"control-label"%>
 			         <div class='controls'>
-			    			<%= f.input :mobile_phone,:label=>false %>
+			    			<%= f.input :mobile,:label=>false %>
 			          </div>
 			       </div>
 
 						<div class='control-group'>
-							<%= f.label :customer_build ,:class=>"control-label"%>
-			         <div class='controls'>
-								<%= f.input :customer_build,:label=>false,:input_html=>{:style=>"height:40px;"},:collection=>Shopping::BUILDS   %>
-			          </div>
-			       </div>
-			
-			
-			    	<div class='control-group'>
 							<%= f.label :customer_address ,:class=>"control-label"%>
 			         <div class='controls'>
-								<%= f.input :customer_address,:label=>false,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
+								<%= f.input :customer_address,:label=>false,:input_html=>{:style=>"height:40px;"} %>
 			          </div>
 			       </div>
+			
 
 						<div class="control-group">
-					    	<%= f.label :receive_time ,:class=>"control-label"%>
+					    	<%= f.label :ship_time ,:class=>"control-label"%>
 							<div class="controls">
-								<%= f.input :receive_time,:label=>false,:collection=>Shopping::RECEIVE_TIMES %>
+								<%= f.input :ship_time,:label=>false,:collection=>Shopping::SEND_TIMES %>
 							</div>
 					  </div>
 				  	<div class='control-group'>

@@ -27,6 +27,7 @@ Houqinmama::Application.routes.draw do
           get 'to_complete'
         end
       end
+      resources :shopping_items
 
       resources :orders
       resources :goods

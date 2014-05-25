@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require wice_grid
+//= require chosen.jquery
 
 //= require admin/plugins/mobile_events/jquery.mobile-events.min
-//= require admin/jquery/jquery-migrate.min
 //= require admin/jquery_ui/jquery-ui.min
 //= require admin/bootstrap/bootstrap.min
 //= require admin/plugins/flot/excanvas.js
@@ -63,4 +63,7 @@
 //= require admin/tables.js
 //= require admin/theme.js
 //= require docsupport/prism.js
-//= require chosen.jquery
+
+
+
+//=require admin/shoppings
