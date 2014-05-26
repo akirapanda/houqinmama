@@ -17,8 +17,8 @@ class Mobile::ShoppingsController < Mobile::BaseController
     cart = Cart.find(@shopping.cart_id)
     
     @shopping.build_with_cart(cart)
-    if sesssion[:open_id]
-      @shopping.open_id = sesssion[:open_id]
+    if session[:open_id]
+      @shopping.open_id = session[:open_id]
     end
 
     
