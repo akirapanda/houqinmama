@@ -19,6 +19,8 @@ class CreateCarts < ActiveRecord::Migration
       t.decimal :cost_item,:default=>0, :precision => 20, :scale => 2
       t.decimal :cost_ship,:default=>0, :precision => 20, :scale => 2
       t.decimal :amount,:default=>0, :precision => 20, :scale => 2
+      t.string :open_id
+      t.text :remark
       t.timestamps
     end
     
