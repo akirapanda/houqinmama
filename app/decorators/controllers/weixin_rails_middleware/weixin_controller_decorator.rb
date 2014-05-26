@@ -3,7 +3,7 @@
 # 2, @weixin_public_account: 如果配置了public_account_class选项,则会返回当前实例,否则返回nil.
 # 3, @keyword: 目前微信只有这三种情况存在关键字: 文本消息, 事件推送, 接收语音识别结果
 WeixinRailsMiddleware::WeixinController.class_eval do
-  server_path="http://203.195.129.125"
+  @server_path="http://203.195.129.125"
 
   def reply
     render xml: send("response_#{@weixin_message.MsgType}_message", {})
@@ -13,7 +13,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
 
     def response_text_message(options={})
       if @keyword == "test"
-        link= link_to ("商城入口","#{server_path}/mobile?open_id=#{@weixin_message.FromUserName}")
+        link= link_to ("商城入口","#{@server_path}/mobile?open_id=#{@weixin_message.FromUserName}")
         reply_text_message(link)
       else
         reply_text_message("Your Message: #{@keyword}")
