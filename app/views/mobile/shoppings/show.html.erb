@@ -1,35 +1,44 @@
 <h2>订单编号 # <%=@shopping.id%></h2>
 <h3>商品清单</h3>
 <div class="cart-list radius mc">
-	<ul>
-		<%@shopping.shopping_items.each do |item|%>
-				<li>
-					<div class="clear">
-						<div class="p-img p-img-v1 fl">
-							<%=link_to [:mobile,item.product] do%>
-								<%=image_tag item.product.good.icon_url(:mobile),:class=>"pay_img",:width=>"50"%>
-							<%end%>
-						</div>
-						<div class="fl fl-v1">
-							<p class="p-name">
-								<%=link_to [:mobile,item.product]  ,:class=>"f6" do%>
-									<%=item.name%>
-								<%end%>
-		
-							</p>
-							<p class="p-price" id="price">价格：<%=number_to_currency item.price,:unit=>"&yen"%></p>
-							<p class="p-price">数量：<%=item.quantity%> <%=item.unit%>
-								
 
-
-							</p>
-							<p class="p-price2"></p>
-							<p class="p-price">小记：<span class="red" id="price<%=item.id%>"><%=number_to_currency item.amount,:unit=>"&yen"%></span></p>
-						</div>
-					</div>
-				</li>
+<table class="table">
+	<thead>
+		<tr>
+			<th>图片</th>
+			<th>商品名称</th>
+			<th>价格</th>
+			<th>数量</th>
+			<th>小计</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@shopping.shopping_items.each do |item|%>		
+			<tr>
+				<td>
+					<%=link_to [:mobile,item.product] do%>
+						<%=image_tag item.product.good.icon_url(:mobile),:class=>"pay_img",:width=>"50"%>
+					<%end%>
+				</td>
+				<td>
+					<%=link_to [:mobile,item.product]  ,:class=>"f6" do%>
+						<%=item.name%>
+					<%end%>
+				</td>
+				<td>
+					<p class="p-price" id="price"><%=number_to_currency item.price,:unit=>"&yen"%></p>
+				</td>
+				<td>
+					<%=item.quantity%> <%=item.unit%>
+				</td>
+				<td>
+						<p class="p-price"><span class="red" id="price<%=item.id%>"><%=number_to_currency item.amount,:unit=>"&yen"%></span></p>
+				</td>
+			</tr>
 		<%end%>
-	</ul>
+	</tbody>
+</table>
+
 </div>	
 
 <div class="pay-tip">
