@@ -15,5 +15,4 @@ WeixinRailsMiddleware.configure do |config|
   config.weixin_token_string = '97c4264c3b50b81c8d5583ef'
   # using to weixin server url to validate the token can be trusted.
   config.weixin_secret_string = 'wp32XIkqpc_CByl3hPw8w7ctTlfZ3Eu4'
-
 end

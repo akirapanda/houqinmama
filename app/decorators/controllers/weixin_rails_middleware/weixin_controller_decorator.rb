@@ -12,12 +12,9 @@ WeixinRailsMiddleware::WeixinController.class_eval do
   private
 
     def response_text_message(options={})
-      if @keyword == "test"
-        link= link_to ("商城入口","#{@server_path}/mobile?open_id=#{@weixin_message.FromUserName}")
-        reply_text_message(link)
-      else
+
         reply_text_message("Your Message: #{@keyword}")
-      end
+      
     end
 
     # <Location_X>23.134521</Location_X>
