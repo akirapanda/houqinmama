@@ -11,11 +11,11 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>商品名称</th>
+				<th>名称</th>
 				<th>价格</th>
 				<th>数量</th>
 				<th>小计</th>
-				<th>删除</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -43,7 +43,7 @@
 							<p class="p-price"><span class="red" id="price<%=item.id%>"><%=number_to_currency item.amount,:unit=>"&yen"%></span></p>
 					</td>
 					<td>
-						<%=link_to '[删除]',[:mobile,item],:method=>:delete, :remote=>true%>
+						<%=link_to 'X',[:mobile,item],:method=>:delete, :remote=>true%>
 					</td>
 				</tr>
 			<%end%>
