@@ -5,7 +5,9 @@
 WeixinRailsMiddleware::WeixinController.class_eval do
   include Rails.application.routes.url_helpers
   
-  @server_path="http://203.195.129.125"
+  def server_path
+    "http://203.195.129.125"
+  end
 
   def reply
     render xml: send("response_#{@weixin_message.MsgType}_message", {})
@@ -15,7 +17,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
 
     def response_text_message(options={})
       if @keyword == "test"
-        link = "<a href='#{@server_path}/mobile?open_id=#{@weixin_message.FromUserName}'> 商城入口</a>"
+        link = "<a href='#{server_path}/mobile?open_id=#{@weixin_message.FromUserName}'> 商城入口</a>"
         logger.info "log is #{link}"
         reply_text_message(link)
       else
