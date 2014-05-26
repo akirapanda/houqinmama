@@ -18,9 +18,9 @@
 		
 							</p>
 							<p class="p-price" id="price">价格：<%=number_to_currency item.price,:unit=>"&yen"%></p>
-							<p class="p-price">数量：
+							<p class="p-price">数量：<%=item.quantity%> <%=item.unit%>
+								
 
-								<input type="text" id="quantity<%=item.id%>" value="<%=item.quantity%>" size="3" style="text-align:center;border: 1px solid #b3b3b3;" readonly/>
 
 							</p>
 							<p class="p-price2"></p>

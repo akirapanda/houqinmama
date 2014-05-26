@@ -20,7 +20,6 @@ class Mobile::ShoppingsController < Mobile::BaseController
     if session[:open_id]
       @shopping.open_id = session[:open_id]
     end
-
     
     if @shopping.save
       session[:cart_id]=nil
