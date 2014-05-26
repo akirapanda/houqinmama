@@ -15,7 +15,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
 
     def response_text_message(options={})
       if @keyword == "test"
-        link= link_to("商城入口","#{@server_path}/mobile?open_id=#{@weixin_message.FromUserName}")
+        link = "<a href='#{@server_path}/mobile?open_id=#{@weixin_message.FromUserName}'> 商城入口</a>"
         reply_text_message(link)
       else
         reply_text_message("Your Message: #{@keyword}")
