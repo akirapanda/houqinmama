@@ -1,0 +1,8 @@
+<%if @success%>
+	$("#product<%=@cart_item.id%>").fadeOut("slow");
+	$("#product<%=@cart_item.id%>").remove();
+	$("#total_count").html("<%=@cart_item.cart.total_count%>");	
+	
+<%else%>
+	alert('更新失败!');
+<%end%>

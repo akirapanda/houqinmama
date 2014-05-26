@@ -11,6 +11,13 @@ class Mobile::CartItemsController < Mobile::BaseController
     end
   end
   
+  def destroy
+    @success = false
+    @cart_item = CartItem.find(params[:id])
+    @success = @cart_item.destroy
+  end
+  
+  
   def plus
     @success = false
     if params[:quantity].present? && params[:quantity].to_i > 0

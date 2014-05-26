@@ -2,6 +2,10 @@ class Mobile::ShoppingsController < Mobile::BaseController
   def new
     @shopping = Shopping.new
     @shopping.cart_id = params[:cart_id]
+    @cart = Cart.find(params[:cart_id])
+    if @cart.cart_items.empty?
+      redirect_to [:mobile,@cart],:alert=>'购物车中没有任何商品'
+    end
   end
   
   def show
@@ -9,7 +13,6 @@ class Mobile::ShoppingsController < Mobile::BaseController
   end
 
   def create
-    
     @shopping = Shopping.new(shopping_params)
     cart = Cart.find(@shopping.cart_id)
     
@@ -17,6 +20,7 @@ class Mobile::ShoppingsController < Mobile::BaseController
     if sesssion[:open_id]
       @shopping.open_id = sesssion[:open_id]
     end
+
     
     if @shopping.save
       session[:cart_id]=nil

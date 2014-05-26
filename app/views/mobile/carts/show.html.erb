@@ -1,3 +1,4 @@
+<%if @cart.cart_items.any?%>
 <div class="my-cart"> <span class="red">共<span id="total_count"><%=@cart.total_count%></span>件商品</span>
 	<div class="btn-area-rt">
 		<a href="/mobile/home/category.html" class="link ft15">继续购买 |</a>
@@ -8,7 +9,7 @@
 <div class="cart-list radius mc">
 	<ul>
 		<%current_cart.cart_items.each do |item|%>
-				<li>
+				<li id='product<%=item.id%>'>
 					<div class="clear">
 						<div class="p-img p-img-v1 fl">
 							<%=link_to [:mobile,item.product] do%>
@@ -20,19 +21,29 @@
 								<%=link_to [:mobile,item.product]  ,:class=>"f6" do%>
 									<%=item.name%>
 								<%end%>
-		[<a href="javascript:if (confirm('您确实要把该商品移出购物车吗？')) location.href='cart.php?act=drop_goods&id=4226'; ">删除</a>]
+								
+								<%=link_to '[删除]',[:mobile,item],:method=>:delete, :remote=>true%>
+
 							</p>
 							<p class="p-price" id="price">价格：<%=number_to_currency item.price,:unit=>"&yen"%></p>
-							<p class="p-price">数量：
-								<%=link_to minus_mobile_cart_item_path(item,:quantity=>"1"),:style=>"font-size:16px",:remote=>true do%>
-									-
-								<%end%>
-								<input type="text" id="quantity<%=item.id%>" value="<%=item.quantity%>" size="3" style="text-align:center;border: 1px solid #b3b3b3;"/>
-								<%=link_to plus_mobile_cart_item_path(item,:quantity=>"1"),:style=>"font-size:16px",:remote=>true do%>
-									+
-								<%end%>
+							<p class="p-price">
+								<div class="row-fluid">
+									<div class="span2">
+										数量
+									</div>
+									<div class=" span9">
+										<%=link_to minus_mobile_cart_item_path(item,:quantity=>"1"),:class=>"decrease",:remote=>true do%>
+											-
+										<%end%>
+										<input type="text" id="quantity<%=item.id%>" value="<%=item.quantity%>" size="3" style="text-align:center;border: 1px solid #b3b3b3;width:50px;" class="number-input" readonly/>
+
+										<%=link_to plus_mobile_cart_item_path(item,:quantity=>"1"),:class=>"increase",:remote=>true do%>
+											+
+										<%end%>
+									</div>
+
+								</div>
 							</p>
-							<p class="p-price2"></p>
 							<p class="p-price">小记：<span class="red" id="price<%=item.id%>"><%=number_to_currency item.amount,:unit=>"&yen"%></span></p>
 						</div>
 					</div>
@@ -50,3 +61,12 @@
 	<%end%>
 
 <div class="to-top"><a href="javascript:scroll(0,0)" hidefocus="true"><span></span>回顶部</a></div>
+
+<%else%>
+
+<div class="well">
+	<p>
+	购物您的购物车是空，清选购商品后再进行结算
+	</p>
+</div>
+<%end%>

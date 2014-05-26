@@ -29,3 +29,23 @@
 .btn-base-block{
 	display:block; margin:0 4px 10px; text-align:center;background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(237, 49, 49)), to(rgb(153, 10, 10))); background-position: initial initial; background-repeat: initial initial;	
 }
+
+
+.increase {
+	float:left;
+	display:inline;
+	height:35px;
+	font-size:16px;	
+}
+.decrease {
+	float:left;
+	display:inline;
+	height:35px;
+	font-size:16px;
+}
+
+.number-input{
+	float:left;
+	display:inline;
+	
+}
