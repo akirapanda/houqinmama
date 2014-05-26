@@ -30,7 +30,9 @@ gem 'mysql2'
 # 上传组件
 gem 'carrierwave', '~> 0.6.2'
 gem 'mini_magick','3.3', require: false
-
+#Weixin
+gem 'weixin_rails_middleware'
+gem 'weixin_authorize'
 #user
 gem 'devise'
 gem 'cells'

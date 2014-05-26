@@ -1,4 +1,5 @@
 Houqinmama::Application.routes.draw do  
+  mount WeixinRailsMiddleware::Engine, at: "/"
   devise_for :users
     
   root 'home#test'
