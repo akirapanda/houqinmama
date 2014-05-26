@@ -11,7 +11,6 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>图片</th>
 				<th>商品名称</th>
 				<th>价格</th>
 				<th>数量</th>
@@ -23,11 +22,6 @@
 			<%@cart.cart_items.each do |item|%>		
 				<tr id='product<%=item.id%>'>
 					<td>
-						<%=link_to [:mobile,item.product] do%>
-							<%=image_tag item.product.good.icon_url(:mobile),:class=>"pay_img",:width=>"50"%>
-						<%end%>
-					</td>
-					<td>
 						<%=link_to [:mobile,item.product]  ,:class=>"f6" do%>
 							<%=item.name%>
 						<%end%>
@@ -37,12 +31,12 @@
 					</td>
 					<td>
 						<%=link_to minus_mobile_cart_item_path(item,:quantity=>"1"),:class=>"decrease",:remote=>true do%>
-							<i class="icon-minus"></i>
+							+
 						<%end%>
 						<input type="text" id="quantity<%=item.id%>" value="<%=item.quantity%>" size="3" style="text-align:center;border: 1px solid #b3b3b3;width:50px;" class="number-input" readonly/>
 
 						<%=link_to plus_mobile_cart_item_path(item,:quantity=>"1"),:class=>"increase",:remote=>true do%>
-						<i class="icon-plus"></i>
+							-
 						<%end%>
 					</td>
 					<td>
