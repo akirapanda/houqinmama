@@ -31,12 +31,12 @@
 					</td>
 					<td>
 						<%=link_to minus_mobile_cart_item_path(item,:quantity=>"1"),:class=>"decrease",:remote=>true do%>
-							+
+							-
 						<%end%>
 						<input type="text" id="quantity<%=item.id%>" value="<%=item.quantity%>" size="3" style="text-align:center;border: 1px solid #b3b3b3;width:50px;" class="number-input" readonly/>
 
 						<%=link_to plus_mobile_cart_item_path(item,:quantity=>"1"),:class=>"increase",:remote=>true do%>
-							-
+							+
 						<%end%>
 					</td>
 					<td>
