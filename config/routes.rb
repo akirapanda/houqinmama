@@ -24,16 +24,16 @@ Houqinmama::Application.routes.draw do
         end
 
         member do
-          get 'to_process'
-          get 'to_complete'
+          get 'to_next'
         end
       end
       resources :shopping_items
 
-      resources :orders
       resources :goods
       resources :goods_cates
       
+      resources :articles
+      resources :article_cates
       
       resources :products do
         collection do
@@ -44,16 +44,7 @@ Houqinmama::Application.routes.draw do
           end
       end
 
-      resources :keywords
 
-      resources :reports do
-         collection do
-           get 'products'
-           get 'customers'
-           get 'sale'
-           get 'customer_sale'
-         end 
-      end
   end
   
   namespace :mobile do

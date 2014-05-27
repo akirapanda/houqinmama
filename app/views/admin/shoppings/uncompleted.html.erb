@@ -1,0 +1,79 @@
+<%= content_for :title do %>
+	进行中的订单
+<% end %>
+
+<div class='span11 box bordered-box blue-border' style='margin-bottom:0;'>
+    <div class='box-header blue-background'>
+        <div class='title'>客户订单列表</div>
+        <div class='actions'>
+
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+							<table class="table">
+							  <thead>
+							    <tr>
+								  <th>订单编号</th>
+
+							      <th>客户名称</th>
+							      <th>地址</th>
+							      <th>手机号</th>
+							      <th>配送时间</th>
+							      <th>总金额</th>
+							      <th>订单状态</th>
+							
+							      <th>创建时间</th>
+							      <th>操作</th>
+							    </tr>
+							  </thead>
+
+							  <tbody>
+							    <% @shoppings.each do |shopping| %>
+							      <tr>
+											<td>
+											<%= link_to [:admin,shopping],:remote=>true do%>
+												<i class="icon-zoom-in"></i>
+											<%end%>
+											<%= link_to shopping.id, admin_shopping_path(shopping) %></td>
+							        <td><%= link_to shopping.customer_name, admin_shopping_path(shopping) %></td>
+							        <td><%= truncate shopping.customer_address%></td>
+											<td><%= shopping.mobile%>
+											<td><%=  shopping.ship_time%>
+												<td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
+								        <td><%= shopping.status%>
+												
+											<td><%= l(shopping.created_at,:format=>:long)%></td>
+									    <td>
+											<%= link_to admin_shopping_path(shopping), method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
+												<i class='icon-remove'></i>
+											<%end%>
+											
+											<%= link_to  edit_admin_shopping_path(shopping) ,:class=>"btn btn-info btn-mini" do%>
+												<i class='icon-edit'></i>
+											<%end%>
+
+											</td>
+							      </tr>
+							    <% end %>
+							  </tbody>
+							</table>
+						</div>
+					</div>					
+				</div>
+
+		</div>		
+</div>
+<div id="detail-modal">
+</div>
+
+
+
+<%= content_for :title do %>
+	总库商品列表
+<% end %>
+
+

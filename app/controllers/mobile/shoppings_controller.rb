@@ -14,6 +14,7 @@ class Mobile::ShoppingsController < Mobile::BaseController
 
   def create
     @shopping = Shopping.new(shopping_params)
+    @shopping.status = Shopping::NEW_STATUS
     cart = Cart.find(@shopping.cart_id)
     
     @shopping.build_with_cart(cart)

@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522023507) do
+ActiveRecord::Schema.define(version: 20140527054908) do
+
+  create_table "article_cates", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "articles", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "article_cate_id"
+    t.datetime "post_time"
+    t.boolean  "hidden",          default: true
+    t.text     "content"
+    t.string   "title"
+    t.string   "keywords"
+    t.string   "breif"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "brands", force: true do |t|
     t.string   "name"
@@ -33,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140522023507) do
     t.decimal  "amount",     precision: 20, scale: 2, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "unit"
   end
 
   create_table "carts", force: true do |t|
@@ -52,7 +71,7 @@ ActiveRecord::Schema.define(version: 20140522023507) do
     t.text     "intro"
     t.string   "unit"
     t.string   "keywords"
-    t.boolean  "sellable",                               default: true
+    t.boolean  "on_sale",                                default: true
     t.decimal  "mk_price",      precision: 20, scale: 2, default: 0.0
     t.decimal  "price",         precision: 20, scale: 2, default: 0.0
     t.string   "weight"
@@ -86,7 +105,7 @@ ActiveRecord::Schema.define(version: 20140522023507) do
     t.text     "intro"
     t.string   "unit"
     t.string   "keywords"
-    t.boolean  "sellable",                               default: true
+    t.boolean  "on_sale",                                default: true
     t.decimal  "mk_price",      precision: 20, scale: 2, default: 0.0
     t.decimal  "price",         precision: 20, scale: 2, default: 0.0
     t.string   "weight"
@@ -110,11 +129,12 @@ ActiveRecord::Schema.define(version: 20140522023507) do
     t.decimal  "amount",      precision: 20, scale: 2, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "unit"
   end
 
   create_table "shoppings", force: true do |t|
     t.integer  "user_id"
-    t.integer  "city_id"
+    t.integer  "cart_id"
     t.string   "status"
     t.string   "pay_status"
     t.string   "ship_status"
@@ -131,6 +151,8 @@ ActiveRecord::Schema.define(version: 20140522023507) do
     t.decimal  "amount",           precision: 20, scale: 2, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "open_id"
+    t.text     "remark"
   end
 
   create_table "users", force: true do |t|

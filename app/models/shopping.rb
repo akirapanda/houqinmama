@@ -4,9 +4,30 @@ class Shopping < ActiveRecord::Base
   has_many :shopping_items
   
   SEND_TIMES= ["12:00","18:00","20:30","次日12:15 - 19:50"]
+  STATUS = ["新订单","正在配货","正在配送","配送完毕"]
+  NEW_STATUS ="新订单"
+  PROCESSING_STATUS ="正在配货"
+  SHIPPING_STATUS = "正在配送"
+  FINISH_STATUS ="配送完毕"
+  
   after_save :save_shopping_items
   
   validates :ship_time,:customer_address,:customer_name,:mobile,:presence => true
+  
+  def next_status
+    current_index = Shopping::STATUS.index(self.status)
+    if current_index == Shopping::STATUS.size - 1
+      self.status
+    else
+      Shopping::STATUS[current_index + 1]
+    end
+  end
+  
+  def to_next
+    self.status = self.next_status
+  end
+  
+  
   
   def build_with_cart(cart)
     cart.cart_items.each do |item|

@@ -6,6 +6,10 @@ class Admin::ShoppingsController <  Admin::BaseController
     @shoppings_grid = initialize_grid(@shoppings,:include=>[:goods_cate],:per_page => 20)
   end
 
+  def uncompleted
+    @shoppings = Shopping.where("status != ?",Shopping::FINISH_STATUS)
+    @shoppings_grid = initialize_grid(@shoppings,:include=>[:goods_cate],:per_page => 20)
+  end
 
   def show
     @shopping = Shopping.find(params[:id])
@@ -21,6 +25,7 @@ class Admin::ShoppingsController <  Admin::BaseController
   
   def create
     @shopping = Shopping.new(shopping_params)
+    @shopping.status = Shopping::NEW_STATUS
     
 
     @shopping.amount=@shopping.calAmount(@shopping)
@@ -58,6 +63,13 @@ class Admin::ShoppingsController <  Admin::BaseController
   
   def edit
     @shopping = Shopping.find(params[:id])
+  end
+  
+  def to_next
+    @shopping = Shopping.find(params[:id])
+    @shopping.to_next
+    @shopping.save
+    redirect_to [:admin,@shopping], notice: '变更状态成功'
   end
   
   private
