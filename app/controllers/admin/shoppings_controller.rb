@@ -2,12 +2,12 @@ class Admin::ShoppingsController <  Admin::BaseController
   
   def index
     @q = Shopping.search(params[:q])
-    @shoppings = @q.result(distinct: true)
+    @shoppings = @q.result(distinct: true).order("id desc")
     @shoppings_grid = initialize_grid(@shoppings,:include=>[:goods_cate],:per_page => 20)
   end
 
   def uncompleted
-    @shoppings = Shopping.where("status != ?",Shopping::FINISH_STATUS)
+    @shoppings = Shopping.where("status != ?",Shopping::FINISH_STATUS).order("id desc")
     @shoppings_grid = initialize_grid(@shoppings,:include=>[:goods_cate],:per_page => 20)
   end
 
