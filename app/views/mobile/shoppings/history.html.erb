@@ -6,6 +6,8 @@
 			<th>金额</th>
 			<th>状态</th>
 			<th>下单日期</th>
+			<th>操作</th>
+			
 		</tr>
 	</thead>
 	<tbody>
@@ -16,6 +18,7 @@
 			<td><%=shopping.status %></td>
 			
 			<td><%=l shopping.created_at,:format=>:short%></td>
+			<td><%=link_to "查看",[:mobile,shopping]%></td>
 		</tr>
 		<%end%>
 	</tbody>
