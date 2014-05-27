@@ -2,7 +2,10 @@
 	<a href="/mobile/home/category.html" class="fl"><img src="/mobile/images/sort.png" /></a>
 	<h1 class="logo" style="display: inline-block;margin:0 auto">上理果园</h1>
 	
-	<a href="#" class="fr"><img src="/mobile/images/cust_icon.png" /></a>
+	<%=link_to history_mobile_shoppings_path,:class=>"fr" do%>
+		<img src="/mobile/images/cust_icon.png" />
+	<%end%>
+	
 	<%=link_to mobile_cart_path(current_cart),:class=>"fr" do%>
 		<img src="/mobile/images/cart.png" />
 	<%end%>

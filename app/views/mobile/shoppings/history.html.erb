@@ -1,0 +1,23 @@
+<h1>历史订单列表</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>订单编号</th>
+			<th>金额</th>
+			<th>状态</th>
+			<th>下单日期</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@shoppings.each do |shopping|%>
+		<tr>
+			<td><%=link_to "# #{shopping.id}",[:mobile,shopping]%></td>
+			<td><%=number_to_currency(shopping.amount,:unit=>"&yen")%></td>
+			<td><%=shopping.status %></td>
+			
+			<td><%=l shopping.created_at,:format=>:short%></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+<%= paginate @shoppings %>

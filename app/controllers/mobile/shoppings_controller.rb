@@ -32,6 +32,15 @@ class Mobile::ShoppingsController < Mobile::BaseController
   end
 
 
+  def history
+    if session[:open_id].nil?
+      redirect_to mobile_root_path,:notice=>"无微信账号信息，请关闭网页重新从微信中打开"
+      return
+    end
+    
+    @shoppings = Shopping.where("open_id = ?",session[:open_id]).page params[:page]
+  end
+
   private
   
   def shopping_params

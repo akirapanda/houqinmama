@@ -2,6 +2,7 @@ class Shopping < ActiveRecord::Base
   belongs_to :cart
   belongs_to :user
   has_many :shopping_items
+  paginates_per 1
   
   SEND_TIMES= ["12:00","18:00","20:30","次日12:15 - 19:50"]
   STATUS = ["新订单","正在配货","正在配送","配送完毕"]
