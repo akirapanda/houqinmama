@@ -30,6 +30,10 @@ gem 'mysql2'
 # 上传组件
 gem 'carrierwave', '~> 0.6.2'
 gem 'mini_magick','3.3', require: false
+
+gem 'by_star', :git => "git://github.com/radar/by_star"
+
+
 #Weixin
 gem 'weixin_rails_middleware'
 gem 'weixin_authorize'

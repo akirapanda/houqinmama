@@ -1,5 +1,20 @@
 <%= content_for :title do %>
-	浏览所有订单信息
+	订单详细信息 #<%=@shopping.id%>  
+	
+	
+	<%unless @shopping.previous?%>
+	
+	<%=link_to [:admin,@shopping.previous],:class=>'btn' do%>
+		<i class="icon-arrow-left icon-white"></i> 上一个订单
+	<%end%>
+	<%end%>
+	<%unless @shopping.next?%>
+		<%=link_to [:admin,@shopping.next],:class=>'btn' do%>
+		 下一个订单<i class="icon-arrow-right icon-white"></i>
+		<%end%>
+	<%end%>
+	<br/> 
+
 <% end %>
 
 <%=render 'search_form'%>

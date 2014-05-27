@@ -3,14 +3,14 @@
 	订单详细信息 #<%=@shopping.id%>  
 	
 	
-	<%unless @prev.nil?%>
+	<%unless @shopping.previous.nil?%>
 	
-	<%=link_to [:admin,@prev],:class=>'btn' do%>
+	<%=link_to [:admin,@shopping.previous],:class=>'btn' do%>
 		<i class="icon-arrow-left icon-white"></i> 上一个订单
 	<%end%>
 	<%end%>
-	<%unless @next.nil?%>
-		<%=link_to [:admin,@next],:class=>'btn' do%>
+	<%unless @shopping.next.nil?%>
+		<%=link_to [:admin,@shopping.next],:class=>'btn' do%>
 		 下一个订单<i class="icon-arrow-right icon-white"></i>
 		<%end%>
 	<%end%>

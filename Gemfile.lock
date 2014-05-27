@@ -8,6 +8,13 @@ GIT
       will_paginate (>= 3.0.3)
 
 GIT
+  remote: git://github.com/radar/by_star
+  revision: 8c22f5108b9379adc7fc80d7c5b8b163027eee10
+  specs:
+    by_star (2.2.1)
+      activesupport
+
+GIT
   remote: git://github.com/rails/activerecord-session_store.git
   revision: e879bf087eb684452aaddb734efa20b95588b141
   specs:
@@ -192,6 +199,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-session_store!
   bootstrap_helper!
+  by_star!
   carrierwave (~> 0.6.2)
   cells
   coffee-rails (~> 4.0.0)
