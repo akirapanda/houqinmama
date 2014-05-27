@@ -6,7 +6,7 @@ class GoodsCate < ActiveRecord::Base
   scope :sub_types, -> { where(cate_type: '子分类') }
   
   belongs_to :parent_goods_cate  ,:class_name => "GoodsCate", :foreign_key => "parent_goods_cate_id"  
-  has_many :children_goods_cates ,:class_name => "GoodsCate", :foreign_key => "parent_goods_cate_id"  
+  has_many :children_goods_cates , ->(o) { where "cate_type = '子分类'" },:class_name => "GoodsCate", :foreign_key => "parent_goods_cate_id"  
   
   after_save :update_parent_cate_id
   

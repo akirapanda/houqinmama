@@ -5,8 +5,9 @@
 	end
 	g.column :name => '编号', :attribute => 'no'
 	
-	g.column :name => "分类", :attribute => "name",:model=>"GoodsCate"
-	
+	g.column :name => "分类", :attribute => "name",:model=>"GoodsCate" do |goods|
+		goods.try(:goods_cate).try(:name)
+  end
 	g.column :name => "销售价",:attribute => "price"
 	
 	g.column :name => "市场价",:attribute => "mk_price"

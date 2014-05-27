@@ -64,6 +64,7 @@
 //= require admin/theme.js
 //= require docsupport/prism.js
 
+//= require jquery.qeditor
 
 
 //=require admin/shoppings
