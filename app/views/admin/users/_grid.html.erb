@@ -1,0 +1,14 @@
+<%= grid(@users_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+  g.column :name => '编号', :attribute => 'id'
+
+  g.column :name => '邮箱', :attribute => 'email' do |user|
+	 link_to(user.email,[:admin,user])
+	end
+
+  
+  g.column :name => '角色', :attribute => 'role'
+
+  g.column do |user|
+	 link_to('编辑',edit_admin_user_path(user))
+	end
+end -%>

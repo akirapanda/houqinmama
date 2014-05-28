@@ -1,0 +1,10 @@
+<%=simple_form_for([:admin,@user],:html=>{:class=>"form-horizontal"}) do |f|%>
+		<%=f.input :email,:input_html=>{:class=>"input-xxlarge"}%>
+		<%=f.input :role,:input_html=>{:class=>"input-xxlarge"},:collection=>User::ROLES%>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">保存</button> 
+			<button class="btn">取消</button>
+		</div> <!-- /form-actions -->
+<%end%>
+

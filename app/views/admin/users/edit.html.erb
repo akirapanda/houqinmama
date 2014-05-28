@@ -1,0 +1,11 @@
+
+
+<%= content_for :title do %>
+	编辑用户信息 - <%=@user.email%>
+<% end %>
+
+<div class='row-fluid'>
+	<div class='box bordered-box blue-border'>
+		<%=render 'form'%>
+	</div>
+</div>

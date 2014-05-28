@@ -44,7 +44,7 @@ Houqinmama::Application.routes.draw do
           end
       end
 
-
+      resources :users
   end
   
   namespace :mobile do
