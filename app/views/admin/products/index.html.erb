@@ -6,8 +6,11 @@
 	<div class='box-header fb-background'>
 	    <div class='title'>总库商品列表</div>
 	    <div class='actions'>
+				<%= link_to  admin_products_path(:format=>:xls,:q=>params[:q]) ,:class=>"btn btn-mini btn-link" do%>
+						<i class="icon-save">导出</i>
+				<%end%>
 				<%=link_to new_list_admin_products_path ,:class=>"btn  btn-mini btn-link" do%>
-					<i class='icon-plus'></i>
+					<i class='icon-plus'>新建</i>
 				<%end%>
 	    </div>
 	</div>

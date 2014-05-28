@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+	      <Cell><Data ss:Type="String">ID</Data></Cell>
+	      <Cell><Data ss:Type="String">编号</Data></Cell>
+	      <Cell><Data ss:Type="String">商品名称</Data></Cell>
+	      <Cell><Data ss:Type="String">商品分类</Data></Cell>
+	
+	      <Cell><Data ss:Type="String">市场价</Data></Cell>
+        <Cell><Data ss:Type="String">销售价</Data></Cell>
+        <Cell><Data ss:Type="String">重量</Data></Cell>
+        <Cell><Data ss:Type="String">单位</Data></Cell>
+
+      </Row>
+    <% @products.each do |product| %>
+			<Row>
+				<Cell><Data ss:Type="String"><%= product.id%></Data></Cell>
+				<Cell><Data ss:Type="String"><%= product.no%></Data></Cell>
+				<Cell><Data ss:Type="String"><%= product.name%></Data></Cell>
+				<Cell><Data ss:Type="String"><%= product.try(:good).try(:good_cate).try(:name)%></Data></Cell>
+				<Cell><Data ss:Type="Number"><%= product.mk_price %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= product.price %></Data></Cell>
+				<Cell><Data ss:Type="String"><%= product.weight%></Data></Cell>
+				<Cell><Data ss:Type="String"><%= product.unit%></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+
+
+
+
+
+
+

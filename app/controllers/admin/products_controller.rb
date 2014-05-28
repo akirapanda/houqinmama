@@ -38,6 +38,12 @@ class Admin::ProductsController <  Admin::BaseController
     @q = Product.search(params[:q])
     @products = @q.result(distinct: true).order("no asc")
     @products_grid = initialize_grid(@products,:per_page => 20)
+    
+    respond_to do |format|
+      format.html
+      format.csv { send_data @products.to_csv }
+      format.xls
+    end
   end
   
   def show

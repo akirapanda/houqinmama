@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527054908) do
+ActiveRecord::Schema.define(version: 20140528070420) do
 
   create_table "article_cates", force: true do |t|
     t.datetime "created_at"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 20140527054908) do
   create_table "carts", force: true do |t|
     t.integer "user_id"
     t.integer "city_id"
+  end
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id"
+    t.string   "commentable_type"
+    t.string   "commentable_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "goods", force: true do |t|
@@ -153,6 +162,17 @@ ActiveRecord::Schema.define(version: 20140527054908) do
     t.datetime "updated_at"
     t.string   "open_id"
     t.text     "remark"
+  end
+
+  create_table "status_log", force: true do |t|
+    t.integer  "user_id"
+    t.string   "statusable_type"
+    t.string   "statusable_id"
+    t.string   "before_stauts"
+    t.string   "after_status"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

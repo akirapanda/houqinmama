@@ -53,3 +53,10 @@
                    cate_type: "类型"
                    parent_goods_cate_id: "母分类"
                    content: "备注/简介"
+               shopping:
+                   customer_name: "名称"
+                   mobile: "手机号码"
+                   customer_address: "地址"
+                   ship_time: "送货地址"
+                   remark: "备注"
+                   status: "状态"
