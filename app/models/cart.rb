@@ -16,8 +16,6 @@ class Cart < ActiveRecord::Base
     current_item = cart_items.find_by_product_id(item.product_id)    
     if current_item
       current_item.quantity+=item.quantity
-      puts current_item.to_json
-      
     else
       current_item = item
       item.cart = self

@@ -8,6 +8,7 @@ class Mobile::CartItemsController < Mobile::BaseController
       end
       
       @cart_item.build_with_product(@product)
+      @cart_item.quantity = params[:cart_item][:quantity]
       @cart_item = current_cart.add_item(@cart_item)
       @success = @cart_item.save
     else
