@@ -6,7 +6,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
   include Rails.application.routes.url_helpers
   
   def server_path
-    "http://203.195.129.125"
+    "http://test.nosweetnopay.com"
   end
 
   def reply
@@ -140,7 +140,28 @@ WeixinRailsMiddleware::WeixinController.class_eval do
 
       # 点击菜单拉取消息时的事件推送
       def reply_click_event
-        reply_text_message("你点击了: #{@keyword}")
+        if @keyword == "BUTTON_BUY"          
+          arts = []
+          art = generate_article("上理果园", "点击进入商城", "", mobile_root_url)
+          arts << art
+          reply_news_message(arts)
+        else
+           keyword = @keyword.upcase.delete("ZX").strip
+            @articles = Article.where("keywords = ?","%#{keyword}%")
+            arts = []
+            if @articles.size >0
+              @articles.each do |article|
+                art = generate_article(article.title, article.breif, server_path+"#{article.cover_url(:normal)}", mobile_article_url(article))
+                logger.info art.to_xml
+                arts << art
+              end
+              reply_news_message(arts)
+            else
+              reply_text_message("按钮可能已经失效，请联系客户人员")
+            end
+        end
+        
+        
       end
 
       # 点击菜单跳转链接时的事件推送
