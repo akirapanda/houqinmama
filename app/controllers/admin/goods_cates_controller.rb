@@ -1,6 +1,7 @@
 class Admin::GoodsCatesController < Admin::BaseController
   def index
-    @goods_cates = GoodsCate.all
+    @q = GoodsCate.search(params[:q])
+    @goods_cates = @q.result(distinct: true)
     @goods_cates_grid = initialize_grid(@goods_cates,:per_page => 20)
   end
   
