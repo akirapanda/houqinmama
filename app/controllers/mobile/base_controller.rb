@@ -1,6 +1,6 @@
 class Mobile::BaseController < ApplicationController
   layout "mobile"
-  before_filter ,:get_weichat_id
+  before_filter :get_weichat_id
   
   def get_weichat_id
     if params[:weichat_id].present?
