@@ -48,6 +48,7 @@
                    store: "库存"
                    sellable: "上架"
                    keywords: "关键字"
+                   no: 编号
                goods_cate:
                    name: "分类名称"
                    cate_type: "类型"
