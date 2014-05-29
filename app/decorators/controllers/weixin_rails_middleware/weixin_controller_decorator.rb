@@ -47,8 +47,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
           reply_news_message(arts)
         else
           reply_text_message("查询无相关资讯: #{keyword}")
-        end   
-        
+        end
       elsif @keyword == "diaocha"
         link = "<a href='http://jinshuju.net/f/fTYCcx'>客户满意度调查表</a>"
         reply_text_message(link)
