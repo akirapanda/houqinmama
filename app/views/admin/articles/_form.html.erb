@@ -3,6 +3,8 @@
 <%=simple_form_for([:admin,@article],:html=>{:class=>"form-horizontal"}) do |f|%>
 	<%= f.input :title,:input_html=>{:class=>"input-xxlarge"}%>
 	<%= f.input :keywords,:input_html=>{:class=>"input-xxlarge"}%>	
+	<%= f.input :breif,:input_html=>{:class=>"input-xxlarge"}%>	
+	<%= f.input :cover%>
 	
 	<%= f.input :hidden%>
 	

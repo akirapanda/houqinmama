@@ -33,6 +33,22 @@ WeixinRailsMiddleware::WeixinController.class_eval do
         else
           reply_text_message("查询无相关商品: #{keyword}")
         end
+        
+      elsif @keyword.upcase.index("ZX")==0
+        keyword = @keyword.upcase.delete("ZX").strip
+        @articles = Article.where("keywords like ? or title like ?","%#{keyword}%","%#{keyword}%")
+        arts = []
+        if @articles.size >0
+          @articles.each do |article|
+            art = generate_article(article.title, article.breif, server_path+"#{article.cover_url(:normal)}", mobile_article_url(article))
+            logger.info art.to_xml
+            arts << art
+          end
+          reply_news_message(arts)
+        else
+          reply_text_message("查询无相关资讯: #{keyword}")
+        end   
+        
       elsif @keyword == "diaocha"
         link = "<a href='http://jinshuju.net/f/fTYCcx'>客户满意度调查表</a>"
         reply_text_message(link)
