@@ -23,7 +23,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
         link = "<a href='http://jinshuju.net/f/fTYCcx'>客户满意度调查表</a>"
         reply_text_message(link)
       else
-        reply_text_message("Your Message: #{@keyword}")
+        reply_text_message("")
       end
     end
 

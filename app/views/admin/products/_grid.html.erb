@@ -15,5 +15,12 @@
 	end
 	g.column do |product|
 		edit = link_to("编辑",edit_admin_product_path(product))
+		if product.on_sale
+			sale = link_to("下架",off_sale_admin_product_path(product),:id=>"product#{product.id}",:remote=>true)
+		else
+			sale = link_to("上架",on_sale_admin_product_path(product),:id=>"product#{product.id}",:remote=>true)
+		end
+		
+		raw "#{edit} | #{sale}"
 	end
 end -%>

@@ -56,6 +56,20 @@ class Admin::ProductsController <  Admin::BaseController
     @goods_grid = initialize_grid(@goods,:per_page => 20)
   end
   
+  def on_sale
+    @product = Product.find(params[:id])
+    @product.on_sale = true
+    @success =  @product.save
+  end
+  
+  def off_sale
+    @product = Product.find(params[:id])
+    @product.on_sale = false
+    @success =  @product.save    
+  end
+  
+  
+  
   private
   def product_params
     params.require(:product).permit!

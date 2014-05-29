@@ -23,6 +23,9 @@ class Admin::ShoppingsController <  Admin::BaseController
     end
   end
   
+
+  
+  
   def create
     @shopping = Shopping.new(shopping_params)
     @shopping.status = Shopping::NEW_STATUS

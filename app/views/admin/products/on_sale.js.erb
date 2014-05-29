@@ -1,0 +1,6 @@
+<%if @success%>
+	<% link = link_to "下架",off_sale_admin_product_path(@product),:id=>"product#{@product.id}",:remote=>true%>
+	$("#product<%=@product.id%>").html('<%=link%>');
+<%else%>
+	alert('购买失败!');
+<%end%>

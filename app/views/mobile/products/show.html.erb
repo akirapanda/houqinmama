@@ -164,10 +164,18 @@
 		<li class="mu_l" style="margin-top:10px;">
 			<%=f.hidden_field :product_id,:value=>@product.id%>
 		<div class="btn-section"> 
-
+			<%if @product.on_sale%>
 			<span class="btn-tbl-cell"> 
 				<%= f.submit "加入购物车",:class=>"btn-add-cart btn_font btn-block"%>
-</span> </div>
+			</span>
+			<%else%>
+			<span class="btn-tbl-cell"> 
+				<%= link_to "已下架","#",:class=>"btn-add-cart btn_font btn-block"%>
+			</span>
+			<%end%>
+			
+		</div>
+			
 		</li>
 	</ul>
 	<%end%>

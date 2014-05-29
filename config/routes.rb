@@ -41,6 +41,8 @@ Houqinmama::Application.routes.draw do
         end
          member do
             get 'photo'
+            get 'on_sale'
+            get 'off_sale'
           end
       end
 
