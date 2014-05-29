@@ -2,6 +2,11 @@ class Shopping < ActiveRecord::Base
   belongs_to :cart
   belongs_to :user
   has_many :shopping_items
+  
+  has_many :status_logs, :as => :statusable
+  has_many :comments, :as => :commentable
+  
+  
   paginates_per 10
   
   SEND_TIMES= ["12:00","18:00","20:30","次日12:15 - 19:50"]

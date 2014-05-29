@@ -24,9 +24,10 @@
 		<div class='pull-left'>
 				<%=tag_process_field(@shopping)%>
      </div>
-
-
 		<div class='pull-right'>
+			<%= link_to admin_shopping_comments_path(@shopping),:class=>"btn btn-info" do%>
+				查看评论(<%=@shopping.comments.size%>)
+			<%end%>
 			<%= link_to edit_admin_shopping_path(@shopping),:class=>"btn btn-info" do%>
 				<i class="icon-edit"></i>	编辑订单
 			<%end%>
@@ -55,7 +56,7 @@
 													<td><%=item.name%></td>
 													<td><%=item.quantity%> <%=item.unit%></td>
 													<td>
-														<div  class='text-center'><%=number_to_currency(item.price,:unit=>"&yen")%> / <%=item.product.unit%></div>
+														<div  class='text-center'><%=number_to_currency(item.price,:unit=>"&yen")%> / <%=item.unit%></div>
 															</td>
 													<td>
 														<div  class='text-right'>
@@ -129,7 +130,9 @@
                        </address>
                    </div>
                </div>
-
+							 <div>
+								<%=render 'admin/comments/comments',:comments=>@shopping.comments(1...10).order("created_at desc"),:commentable=>@shopping%>
+								</div>
                <div class='form-actions'>
                    <ul class='pager'>
                        <li>

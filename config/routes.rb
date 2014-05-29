@@ -16,8 +16,12 @@ Houqinmama::Application.routes.draw do
     end
   end
   namespace :admin do
+    resources :comments
+    
     root :to => 'home#index'  
       resources :shoppings do
+        resources :comments
+        
         collection do
           match 'search' => 'shoppings#search', via: [:get, :post], as: :search
           get 'uncompleted'

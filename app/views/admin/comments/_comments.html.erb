@@ -1,0 +1,30 @@
+<table class="table">
+	<tr>
+		<td>留言时间</td>
+		<td>留言用户</td>
+		<td>内容</td>
+		<td></td>
+		
+	</tr>
+	
+	<%comments.each do |comment|%>
+		<tr>
+			<td><%=l comment.created_at,:format=>:long%></td>
+			<td><%=comment.user.email%></td>
+			<td><%=comment.body%></td>
+			<td>
+				<%if comment.user == current_user%>
+					<%=link_to "删除",[:admin,comment],:method=>:delete%>
+				<%end%>
+			</td>
+		</tr>
+	<%end%>
+</table>
+<div class="form-actions input-append">
+	<legend>发表新备注</legend>
+
+<%= form_for([:admin,commentable,Comment.new],:html=>{:class=>""}) do |f| %>
+	<%= f.text_area :body, :rows => "2" ,:class=>"input-xxlarge"%>
+	<%= f.submit "发表",:class=>"btn btn-primary no-radius"%>
+<%end%>
+</div>
