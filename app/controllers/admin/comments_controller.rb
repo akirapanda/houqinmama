@@ -9,7 +9,8 @@ class Admin::CommentsController <  Admin::BaseController
   end
   
   def index
-    
+    @commentable = find_commentable
+    @comments = @commentable.comments
   end
   
   def destroy

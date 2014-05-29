@@ -16,6 +16,7 @@
         <Cell><Data ss:Type="String">销售价</Data></Cell>
         <Cell><Data ss:Type="String">重量</Data></Cell>
         <Cell><Data ss:Type="String">单位</Data></Cell>
+        <Cell><Data ss:Type="String">上架(Y/N)</Data></Cell>
 
       </Row>
     <% @products.each do |product| %>
@@ -28,6 +29,8 @@
         <Cell><Data ss:Type="Number"><%= product.price %></Data></Cell>
 				<Cell><Data ss:Type="String"><%= product.weight%></Data></Cell>
 				<Cell><Data ss:Type="String"><%= product.unit%></Data></Cell>
+				<Cell><Data ss:Type="String"><%= product.on_sale ? "Y" : "N"%></Data></Cell>
+				
       </Row>
     <% end %>
     </Table>

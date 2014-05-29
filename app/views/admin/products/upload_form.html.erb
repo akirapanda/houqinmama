@@ -1,0 +1,21 @@
+
+<%= content_for :title do %>
+	批量更新
+<% end %>
+
+
+<div class="widget stacked ">
+	<div class="widget-header">
+	</div> <!-- /widget-header -->		
+		<div class="widget-content">
+			<%=form_for(:post,:url=>upload_admin_products_path, :html => {:multipart => true}) do |f| %>
+			  <p>
+			    选择上传的文件:<br />
+			    <%= file_field 'file', 'xlsfile' %>
+			  </p>
+			  <p>
+			    <%= f.submit '导入',:class=>"btn btn-primary" %>
+			  </p>
+			<% end %>
+		</div>
+</div>

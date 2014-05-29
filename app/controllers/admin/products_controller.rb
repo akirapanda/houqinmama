@@ -68,7 +68,53 @@ class Admin::ProductsController <  Admin::BaseController
     @success =  @product.save    
   end
   
+  def upload_form
   
+  end
+  
+  def upload
+    Product.transaction do
+      xlsfile = upload_file(params[:file]['xlsfile'])
+      book = Spreadsheet.open("#{::Rails.root}/public/uploads/#{xlsfile}")
+      sheet = book.worksheet(0)
+      sheet.each_with_index do |row, i|
+        if i>0
+          id = row[0]
+          product = Product.find(id)
+          if product
+            product.no = row[1]
+            product.name = row[2]
+            product.mk_price = row[4].to_f
+            product.price = row[5].to_f
+            product.weight = row[6]
+            product.unit = row[7]
+            product.on_sale = row[8]=="Y" ? true : false
+            product.save
+          end
+        end
+      end
+    end
+    redirect_to admin_products_path,:notice=>"上传成功"
+  end
+
+
+  protected
+  def upload_file(file)
+    if !file.original_filename.empty?
+      @filename = get_file_name(file.original_filename)
+      File.open("#{::Rails.root.join('public','uploads',@filename)}", "wb") do |f|
+        f.write(file.read)
+      end
+      return @filename
+    end
+  end
+
+  def get_file_name(filename)
+    if !filename.nil?
+      # chinese filename not supported?
+      Time.now.strftime("%Y%m%d%H%M%S") + '.xls'
+    end
+  end
   
   private
   def product_params

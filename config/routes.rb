@@ -42,6 +42,8 @@ Houqinmama::Application.routes.draw do
       resources :products do
         collection do
           get 'new_list'
+          get 'upload_form'
+          post 'upload'
         end
          member do
             get 'photo'

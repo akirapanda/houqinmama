@@ -1,0 +1,9 @@
+<%= content_for :title do %>
+	评论列表
+<% end %>
+
+<%=render 'comments',:comments=>@comments,:commentable=>@commentable%>
+
+<div class="form-actions">
+	<%=link_to "返回", [:admin,@commentable],:class=>"btn pull-right"%>
+</div> <!-- /form-actions -->

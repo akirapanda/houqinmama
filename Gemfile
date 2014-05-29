@@ -26,6 +26,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'mysql2'
+#excel
+gem 'spreadsheet'
 
 # 上传组件
 gem 'carrierwave', '~> 0.6.2'

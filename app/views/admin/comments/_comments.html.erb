@@ -20,11 +20,10 @@
 		</tr>
 	<%end%>
 </table>
-<div class="form-actions input-append">
+<div class="form-actions ">
 	<legend>发表新备注</legend>
-
 <%= form_for([:admin,commentable,Comment.new],:html=>{:class=>""}) do |f| %>
-	<%= f.text_area :body, :rows => "2" ,:class=>"input-xxlarge"%>
+	<%= f.text_area :body, :rows => "3" ,:class=>"input-xxlarge"%>
 	<%= f.submit "发表",:class=>"btn btn-primary no-radius"%>
 <%end%>
 </div>

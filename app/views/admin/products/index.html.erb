@@ -6,6 +6,10 @@
 	<div class='box-header fb-background'>
 	    <div class='title'>总库商品列表</div>
 	    <div class='actions'>
+		
+				<%= link_to  upload_form_admin_products_path ,:class=>"btn btn-mini btn-link" do%>
+						<i class="icon-upload">导入</i>
+				<%end%>
 				<%= link_to  admin_products_path(:format=>:xls,:q=>params[:q]) ,:class=>"btn btn-mini btn-link" do%>
 						<i class="icon-save">导出</i>
 				<%end%>
