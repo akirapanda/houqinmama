@@ -146,7 +146,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
           arts << art
           reply_news_message(arts)
         else
-           keyword = @keyword.upcase.delete("ZX").strip
+           keyword = @keyword
             @articles = Article.where("keywords = ?","%#{keyword}%")
             arts = []
             if @articles.size >0
