@@ -9,6 +9,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.string :keywords
       t.string :breif
+      t.string :cover
       t.timestamps
     end
     

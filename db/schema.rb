@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140528070420) do
     t.string   "title"
     t.string   "keywords"
     t.string   "breif"
+    t.string   "cover"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
