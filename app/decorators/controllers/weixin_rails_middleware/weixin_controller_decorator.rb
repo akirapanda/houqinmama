@@ -19,6 +19,20 @@ WeixinRailsMiddleware::WeixinController.class_eval do
       if @keyword == "test"
         link = "<a href='#{server_path}/mobile?open_id=#{@weixin_message.FromUserName}'> 商城入口</a>"
         reply_text_message(link)
+      elsif @keyword.upcase.index("CX")==0
+        keyword = @keyword.upcase.delete("CX").strip
+        @products = Product.where("keywords like ? or name like ?","%#{keyword}%","%#{keyword}%")
+        arts = []
+        if @products.size >0
+          @products.each do |product|
+            art = generate_article(product.name, product.pdt_desc, server_path+"#{product.good.icon_url(:normal)}", mobile_product_url(product))
+            logger.info art.to_xml
+            arts << art
+          end
+          reply_news_message(arts)
+        else
+          reply_text_message("查询无相关商品: #{keyword}")
+        end
       elsif @keyword == "diaocha"
         link = "<a href='http://jinshuju.net/f/fTYCcx'>客户满意度调查表</a>"
         reply_text_message(link)

@@ -52,6 +52,7 @@ Houqinmama::Application.routes.draw do
   namespace :mobile do
     root :to => 'home#index'
     resources :carts
+    resources :articles
     
     resources :cart_items do
       member do

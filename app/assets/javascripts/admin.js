@@ -65,6 +65,8 @@
 //= require docsupport/prism.js
 
 //= require jquery.qeditor
+//= require simditor-all.min
+
 
 
 //=require admin/shoppings

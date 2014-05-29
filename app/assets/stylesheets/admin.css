@@ -33,5 +33,7 @@
  *= require chosen
  *= require wice_grid
  *= require jquery.qeditor
+ *= require font-awesome.css
+ *= require simditor.css
 
  */

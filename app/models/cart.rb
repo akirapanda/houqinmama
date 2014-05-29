@@ -10,7 +10,6 @@ class Cart < ActiveRecord::Base
     self.cart_items.inject(0) { |sum, i| sum+i.amount }
   end
   
-  
   def add_item(item)
     puts "id is #{item.product_id}"
     current_item = cart_items.find_by_product_id(item.product_id)    

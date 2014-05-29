@@ -1,0 +1,16 @@
+
+<%= grid(@articles_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+	g.column :name => 'ID', :attribute => 'id'
+	
+	g.column :name => '标题', :attribute => 'title'  do |article|
+		link_to article.title,[:admin,article]
+	end
+	
+
+	g.column :name => "关键字" ,:attribute => "keywords"
+
+	g.column do |article|
+		edit = link_to("编辑",edit_admin_article_path(article))
+	end
+	
+end -%>
