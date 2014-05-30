@@ -38,6 +38,9 @@
 
 								<div class="span7">
 									<strong>品名:</strong> <span><%=@product.name%></span><br>
+									<strong>分类:</strong> <span>
+										<%=@product.goods_cate.parent_goods_cate.name%>/<%=@product.goods_cate.name%></span><br>
+									
 									<strong>简介:</strong> <span><%=@product.brief%></span><br>
 									<strong>重量:</strong> <span><%=@product.weight%></span><br>
 									<strong>价格:</strong> <span><%=number_to_currency @product.price,:unit=>"&yen;"%>/<%= @product.unit%></span><br>

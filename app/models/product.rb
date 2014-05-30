@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :good
   validates :name, :no,:presence => true
+  has_one :goods_cate, through: :good
   
   scope :on_sale, -> { where(on_sale: true) }
   paginates_per 10

@@ -14,6 +14,11 @@ class GoodsCate < ActiveRecord::Base
     self.try(:parent_goods_cate).try(:name)
   end
   
+  def main_type?
+    cate_type == "主分类"
+  end
+  
+  
   private
   
   def update_parent_cate_id

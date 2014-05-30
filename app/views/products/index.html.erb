@@ -15,10 +15,16 @@
 							
 							<% end %>
 							<ul class="nav nav-list">
-								<li class="nav-header">商品分类</li>
-								<%=link_to products_path do%>
-									<i class="icon-ok"></i>所有水果</a>
+								
+								<%GoodsCate.main_types.each do |main|%>
+								<li class="nav-header"><%=main.name%></li>
+									<%main.children_goods_cates.each do |child|%>
+										<%if child.cate_type != "主分类"%>
+											<%=link_to child.name,products_path(:cate_id=>child.id)%>
+										<%end%>
+									<%end%>
 								<%end%>
+
 							</ul>
 						</div>
 					</div>
@@ -44,18 +50,9 @@
 
 					<div class="row-fluid">
 						<div class="span9">
-							<h2>所有水果</h2>
 						</div>
-						<!--div class="span3">
-							<div class="social-icons pull-right">
-								<a href="#"><img src="img/icon-facebook.png" alt="facebook"></a>
-								<a href="#"><img src="img/icon-twitter.png" alt="twitter"></a>
-								<a href="#"><img src="img/icon-linkedin.png" alt="linkedin"></a>
-								<a href="#"><img src="img/icon-rss.png" alt="rss"></a>
-							</div>
-						</div-->
+
 					</div>
-					<hr/>
 					<div class="row-fluid">
 						<%=render "products",:products=>@products%>
 					</div>

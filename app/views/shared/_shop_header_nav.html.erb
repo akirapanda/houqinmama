@@ -10,17 +10,15 @@
 									<i class="icon-home"></i>
 								<%end%>
 							<li class="divider-vertical"></li>
+							
+							
 							<li><%=link_to "首页", root_path%></li>
-							<li><%=link_to "全部水果", products_path%></li>
-							<li><%=link_to "双\"蛋\"活动", "#"%></li>
-							<!--li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">other pages <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="column1.html">1 column page</a></li>
-									<li><a href="column2.html">2 column page</a></li>
-									<li><a href="column3.html">3 column page</a></li>
-								</ul>
-							</li-->
+							<li><%=link_to "所有水果", products_path%></li>
+							
+							<%GoodsCate.main_types.each do |cate|%>
+								<li><%=link_to cate.name, products_path(:main_cate_id=>cate.id)%></li>
+							<%end%>
+
 						</ul>
 
 						<ul class="nav pull-right">

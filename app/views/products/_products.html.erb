@@ -17,11 +17,11 @@
 								<%=link_to product do%>
 								<div class="thumbnail">
 									<%=link_to product  do%>
-										<img src="<%=product.cover_url(:normal)%>" alt="<%=product.name%>">
+										<img src="<%=product.good.icon_url(:normal)%>" alt="<%=product.name%>">
 									<%end%>
 									<div class="caption">
 										<%=link_to "#{product.name}" ,product%> 
-										<p><%=product.content%> <span class="label label-info price pull-right"> <%=number_to_currency product.price,:unit=>'&yen'%>/ <%= product.unit%></span></p>
+										<p><%=product.brief%> <span class="label label-info price pull-right"> <%=number_to_currency product.price,:unit=>'&yen'%>/ <%= product.unit%></span></p>
 									</div>
 								</div>
 								<%end%>
