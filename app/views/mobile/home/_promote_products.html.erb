@@ -7,7 +7,7 @@
 						<table cellspacing="0" cellpadding="0" class="tab" width="95%" >
 							<tbody>
 								<tr>
-									<td class="p-img" style="float:none;"><%=image_tag product.good.icon_url(:mobile)%></td>
+									<td><%=image_tag product.good.icon_url(:mobile)%></td>
 									<td  valign="top" class="text"><div class="p-name" style="color: #3C3C3C;font-size: 0.875em;" ><%=product.name%><font color="red"></font> </div>
 										<div class="p-detail" style="width:180px; float:right"><span style="float:left">价格： <font color="red" style="font-family:Arial;font-weight:bold"> <%=number_to_currency(product.price,:unit=>"&yen")%></font> <span></div></td>
 								</tr>
