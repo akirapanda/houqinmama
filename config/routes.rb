@@ -32,8 +32,14 @@ Houqinmama::Application.routes.draw do
         end
       end
       resources :shopping_items
-
-      resources :goods
+      resources :goods_images
+      resources :goods do
+        resources :goods_images
+        
+        member do
+          get 'photo'
+        end
+      end
       resources :goods_cates
       
       resources :articles

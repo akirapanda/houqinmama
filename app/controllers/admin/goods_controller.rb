@@ -9,6 +9,11 @@ class Admin::GoodsController < Admin::BaseController
     @goods = Good.find(params[:id])
   end
   
+  def photo
+    @goods = Good.find(params[:id])
+    @goods_images_grid = initialize_grid(@goods.goods_images,:per_page => 20)
+  end
+  
   def new
     @goods = Good.new
   end

@@ -29,6 +29,8 @@
 					<%=raw @goods.intro%>
 					</pre>
 					<div class="btn-group pull-right">
+						<%=link_to "配图管理",photo_admin_good_path(@goods),:class=>"btn btn-primary"%>
+						
 						<%=link_to "编辑",edit_admin_good_path(@goods),:class=>"btn"%>
 						<%=link_to "删除",[:admin,@goods],:method=>:delete,:class=>"btn btn-danger"%>
 					</div>

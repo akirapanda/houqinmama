@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528070420) do
+ActiveRecord::Schema.define(version: 20140530030116) do
 
   create_table "article_cates", force: true do |t|
     t.datetime "created_at"
@@ -99,6 +99,25 @@ ActiveRecord::Schema.define(version: 20140528070420) do
     t.string   "cate_type"
     t.integer  "parent_goods_cate_id"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "goods_images", force: true do |t|
+    t.integer  "user_id"
+    t.string   "cover"
+    t.string   "imageable_type"
+    t.string   "imageable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.integer  "user_id"
+    t.text     "name"
+    t.string   "image"
+    t.string   "imageable_type"
+    t.string   "imageable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
