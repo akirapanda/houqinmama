@@ -1,9 +1,10 @@
-<div class="widget stacked ">
-	<div class="widget-header">
- 		<i class="icon-user"></i>
- 		<h3>编辑-<%=@product.name%></h3>
-	</div> <!-- /widget-header -->		
-		<div class="widget-content">
-			<%=render 'form'%>
-		</div>
+
+
+<%= content_for :title do %>
+	编辑在下售商品记录 - <%=@product.name%>
+<% end %>
+<div class='row-fluid'>
+	<div class='box bordered-box blue-border'>
+		<%=render 'form'%>
+	</div>
 </div>
