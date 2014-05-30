@@ -38,7 +38,7 @@
 <div class="row-fluid">
 
 	<div class="offset4 span8">
-		<%= search_form_for @q ,:class=>"form-search" do |f| %>
+		<%= search_form_for Product.search(params[:q]) ,:class=>"form-search" do |f| %>
 			  <div class="input-prepend input-append">
 					<span class="add-on">水果名称</span>
 				  <%= f.text_field :name_cont,:class=>" input-xxlarge" ,:placeholder=>"输入想要的水果，如果没有请给我们留言"%>

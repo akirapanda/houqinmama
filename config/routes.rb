@@ -2,7 +2,7 @@ Houqinmama::Application.routes.draw do
   mount WeixinRailsMiddleware::Engine, at: "/"
   devise_for :users
     
-  root 'home#test'
+  root 'home#index'
   
   resources :products , :only => ['show','index'] do
 
@@ -15,6 +15,10 @@ Houqinmama::Application.routes.draw do
       get  'history_buy'
     end
   end
+  
+  resources :products 
+  resources :shopping_items 
+  
   namespace :admin do
     resources :comments
     

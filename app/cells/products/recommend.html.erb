@@ -7,12 +7,12 @@
 			<div class="thumbnail">
 				 <span class="label label-important price pull-right">&yen<%= product.price.to_f%>/<%= product.unit%></span>
 				<%=link_to product do%>
-				<img src="<%=product.cover_url(:normal)%>" height="100px" alt="product.name">
+				<img src="<%=product.good.icon_url(:normal)%>" height="100px" alt="product.name">
 				<%end%>
 
 				<div class="caption">
 					<%=link_to product.name,product%>
-					<p><%=product.content%></p>
+					<p><%=product.brief%></p>
 				</div>
 			</div>
 		</li>

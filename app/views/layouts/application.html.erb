@@ -20,8 +20,8 @@
 	  <link rel="apple-touch-icon-precomposed" href="<%= asset_path("ios-icon.png") %>" />
 
 
-  	<%= stylesheet_link_tag   "shop"%>
-  	<%= javascript_include_tag "shop"%>
+  	<%= stylesheet_link_tag   "shop", "data-turbolinks-track" => false%>
+  	<%= javascript_include_tag "shop", "data-turbolinks-track" => false%>
 
 
   	<%= csrf_meta_tags %>

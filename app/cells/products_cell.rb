@@ -5,7 +5,7 @@ class ProductsCell < Cell::Rails
   end
   
   def all
-    @products=Product.where(:is_onsale=>true).where(:is_visiable=>true)
+    @products=Product.where(:on_sale=>true)
     render
   end
   
@@ -15,12 +15,12 @@ class ProductsCell < Cell::Rails
   end
   
   def recommend
-    @products=Product.where(:is_onsale=>true).where(:is_visiable=>true).where(:is_recommend=>true).limit(3)
+    @products=Product.where(:on_sale=>true).limit(3)
     render
   end
   
   def lastest
-    @products=Product.where(:is_visiable=>true)
+    @products=Product.on_sale
     render
   end
   
